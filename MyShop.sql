@@ -68,3 +68,19 @@ create table bought(
 	product int
 
 );
+
+
+
+alter table bought add foreign key (user) references users(id);
+alter table bought add foreign key (product) references products(id);
+
+alter table products add foreign key (category) references categories(id);
+alter table orders add foreign key (user) references users(id);
+
+alter table comments add foreign key (product) references products(id);
+alter table comments add foreign key (user) references users(id);
+
+alter table rating add foreign key (product) references products(id);
+alter table rating add foreign key (user) references users(id);
+
+
