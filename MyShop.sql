@@ -16,3 +16,55 @@ create table products (
 	content text not null
 
 );
+
+create table users (
+
+	id int primary key auto_increment not null,
+	name varchar(50) not null,
+	lastname varchar(50) not null,
+	role varchar(50) not null  DEFAULT 'Users',
+	email varchar(50) 
+	
+);
+
+create table orders(
+
+	id int primary key auto_increment not null,
+	status varchar(50) not null,
+	amount varchar(50) not null,
+	transaction_id varchar(50) not null,
+	order_date date not null,
+	user int
+	
+);
+
+create table categories(
+
+	id int primary key auto_increment not null,
+	name varchar(50)
+
+);
+
+create table comments(
+
+	user int,
+	product int,
+	comment text,
+	comment_date date
+
+);
+
+create table rating(
+
+	user int,
+	product int,
+	rating int(1)
+
+);
+
+create table bought(
+
+	user int,
+	product int
+
+);
