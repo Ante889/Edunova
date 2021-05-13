@@ -86,13 +86,15 @@ insert into mjesto (opcina, naziv) values
 
 
 
+########################################
+###########     UPDATE     #############
+########################################
 
-
-
-
-
-
-
+update mjesto set naziv= 'UpdateImeMjesta' where sifra=1;
+update mjesto set naziv= 'UpdateImeMjesta' where sifra=2;
+update mjesto set naziv= 'UpdateImeMjesta' where sifra=3;
+update mjesto set naziv= 'UpdateImeMjesta' where sifra=4;
+update mjesto set naziv= 'UpdateImeMjesta' where sifra=5;
 
 
 
