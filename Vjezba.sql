@@ -76,9 +76,9 @@ insert into mjesto (opcina, naziv) values
 (2,'ImeMjesta3'),
 (1,'ImeMjesta4'),
 (3,'ImeMjesta5'),
-(6,'ImeMjesta6'),
+(4,'ImeMjesta6'),
 (1,'ImeMjesta7'),
-(5,'ImeMjesta8'),
+(4,'ImeMjesta8'),
 (2,'ImeMjesta9'),
 (4,'ImeMjesta10'),
 (3,'ImeMjesta11'),
@@ -90,12 +90,15 @@ insert into mjesto (opcina, naziv) values
 ###########     UPDATE     #############
 ########################################
 
-update mjesto set naziv= 'UpdateImeMjesta' where sifra=1;
-update mjesto set naziv= 'UpdateImeMjesta' where sifra=2;
-update mjesto set naziv= 'UpdateImeMjesta' where sifra=3;
-update mjesto set naziv= 'UpdateImeMjesta' where sifra=4;
-update mjesto set naziv= 'UpdateImeMjesta' where sifra=5;
+update mjesto set naziv= 'UpdateImeMjesta' where sifra <=5;
 
+
+########################################
+###########     DELETE     #############
+########################################
+
+
+delete from opcina where sifra >= 5;
 
 
 
