@@ -51,3 +51,24 @@ alter table proizvodi_sirovine add foreign key (sirovina) references sirovine(si
 
 alter table djelatnici_proizvodi add foreign key (djelatnik) references djelatnici(sifra);
 alter table djelatnici_proizvodi add foreign key (proizvod) references proizvodi(sifra);
+
+
+
+############################################################
+insert into proizvodi (naziv,cijena,kolicina) values
+('proizvod1','18.22','10'),
+('proizvod2','12.59','18');
+
+insert into sirovine (naziv) values
+('sirovina1');
+
+insert into proizvodi_sirovine (proizvod,sirovina) values
+(1,1);
+
+###########################################################
+
+update sirovine set naziv='UpdateSirovina1' where sifra=1; 
+
+###########################################################
+
+delete from proizvodi where sifra = 2;
