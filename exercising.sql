@@ -40,3 +40,9 @@ select * from izdavac where naziv like '%d.o.o%' or naziv like '%d.oo%' or naziv
 
 ####################################################################################
 
+select ime as name, "something" as prezime from autor;
+
+
+#############################################################################
+
+select * from autor where datumrodenja < now(); 
