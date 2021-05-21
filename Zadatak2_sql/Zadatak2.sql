@@ -5,7 +5,7 @@
 #1. U tablice neprijatelj, cura i decko_zarucnica unesite po 3 retka. (7)
 
 #2. U tablici prijatelj postavite svim zapisima kolonu treciputa na
-#vrijednost 30. travnja 2020. (4)
+#vrijednost 30. travnja 2020. (4) 
 
 #3. U tablici brat obrišite sve zapise èija je vrijednost kolone ogrlica
 #razlièito od 14. (4)
