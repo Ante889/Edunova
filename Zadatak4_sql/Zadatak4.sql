@@ -1,3 +1,24 @@
+#Zadaci za kolokvij_vjezba_4 (u zagradi je maksimalan broj bodova)
+
+#0. Kreirajte tablice (16) i veze izmeðu tablica. (6)
+
+#1. U tablice becar, snasa i zena_mladic unesite po 3 retka. (7)
+
+#2. U tablici punac postavite svim zapisima kolonu majica na
+#vrijednost Osijek. (4)
+
+#3. U tablici prijatelj obrišite sve zapise èija je vrijednost kolone
+#prstena veæe od 17. (4)
+
+#4. Izlistajte haljina iz tablice snasa uz uvjet da vrijednost kolone
+#treciputa nepoznate. (6)
+
+#5. Prikažite nausnica iz tablice mladic, jmbag iz tablice prijatelj te
+#kratkamajica iz tablice becar uz uvjet da su vrijednosti kolone
+#treciputa iz tablice snasa poznate te da su vrijednosti kolone lipa iz
+#tablice zena razlièite od 29. Podatke posložite po kratkamajica iz
+#tablice becar silazno. (10)
+
 DROP database IF EXISTS Zadatak4;
 CREATE database Zadatak4;
 use Zadatak4;
