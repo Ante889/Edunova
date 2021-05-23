@@ -1,26 +1,26 @@
 #Zadaci za kolokvij_vjezba_21 (u zagradi je maksimalan broj bodova)
 
-#0. Kreirajte tablice (16) i veze izmeï¿½u tablica. (6)
+#0. Kreirajte tablice (16) i veze izmeðu tablica. (6)
 
 #1. U tablice ostavljen, cura i zena_brat unesite po 3 retka. (7)
 
 #2. U tablici djevojka postavite svim zapisima kolonu maraka na
 #vrijednost 15,74. (4)
 
-#3. U tablici svekrva obriï¿½ite sve zapise ï¿½ija je vrijednost kolone jmbag
+#3. U tablici svekrva obrišite sve zapise èija je vrijednost kolone jmbag
 #00000000007. (4)
 
 #4. Izlistajte nausnica iz tablice cura uz uvjet da vrijednost kolone
-#bojakose sadrï¿½e slova ana. (6)
+#bojakose sadrže slova ana. (6)
 
-#5. Prikaï¿½ite hlace iz tablice brat, ostavljen iz tablice svekrva te
+#5. Prikažite hlace iz tablice brat, ostavljen iz tablice svekrva te
 #ekstroventno iz tablice ostavljen uz uvjet da su vrijednosti kolone
-#bojakose iz tablice cura poï¿½inju slovom a te da su vrijednosti kolone
-#drugiputa iz tablice zena poznate. Podatke posloï¿½ite po ekstroventno
+#bojakose iz tablice cura poèinju slovom a te da su vrijednosti kolone
+#drugiputa iz tablice zena poznate. Podatke posložite po ekstroventno
 #iz tablice ostavljen silazno. (10)
 
-#6. Prikaï¿½ite kolone drugiputa i asocijalno iz tablice zena ï¿½iji se
-#primarni kljuï¿½ ne nalaze u tablici zena_brat. (5)
+#6. Prikažite kolone drugiputa i asocijalno iz tablice zena èiji se
+#primarni kljuè ne nalaze u tablici zena_brat. (5)
 
 drop database if exists Zadatak21;
 create database Zadatak21;
@@ -141,6 +141,7 @@ insert into ostavljen (bojakose,maraka,vesta,cura) values ("Bojakose",1.1,"Vesta
 
 
 ######################
+#2
 
 update djevojka set maraka = '15.74';
 
@@ -168,10 +169,6 @@ where c.bojakose like 'a%' and d.drugiputa is not null
 order by b.ekstroventno; 
 
 #vrijeme 24:28
-
-
-6. Prikaï¿½ite kolone drugiputa i asocijalno iz tablice zena ï¿½iji se
-primarni kljuï¿½ ne nalaze u tablici zena_brat. (5)
 
 
 #######################
