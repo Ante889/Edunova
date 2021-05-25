@@ -62,7 +62,7 @@ select autor, naslov from katalog;
 
 
 
-#1. Write a query to display the names (first_name, last_name) using alias name “First Name", "Last Name"Go to the editor
+#1. Write a query to display the names (first_name, last_name) using alias name “First Name", "Last Name Go to the editor
 
 select first_Name, last_name from employees;
 
@@ -125,4 +125,104 @@ select 171*214+625 result;
 
 
 
+jztjzd
 
+
+
+
+
+
+
+
+#------------------------------------
+
+
+
+1. Write a query to display all salesmen and customer located in London.
+
+
+SELECT name FROM salesman WHERE city ='London'
+UNION 
+(SELECT cust_name FROM customer WHERE city='London');
+
+
+
+2. Write a query to display distinct salesman and their cities.
+
+SELECT salesman_id, city FROM customer
+UNION
+(SELECT salesman_id, city FROM salesman)
+
+
+
+3. Write a query to display all the salesmen and customer involved in this inventory management system.
+
+SELECT  customer_id, salesman_id FROM ORDER
+UNION (SELECT  customer_id, salesman_id FROM customer);
+
+
+
+4. Write a query to make a report of which salesman produce the largest and smallest orders on each date. 
+
+SELECT a.salesman_id, name, ord_no, 'highest on', ord_date FROM salesman a, orders b 
+WHERE a.salesman_id =b.salesman_id
+AND b.purch_amt=
+	(SELECT MAX (purch_amt)
+	FROM orders c
+	WHERE c.ord_date = b.ord_date)
+UNION
+(SELECT a.salesman_id, name, ord_no, 'lowest on', ord_date
+FROM salesman a, orders b
+WHERE a.salesman_id =b.salesman_id
+AND b.purch_amt=
+	(SELECT MIN (purch_amt)
+	FROM orders c
+	WHERE c.ord_date = b.ord_date))
+	
+	
+	
+	
+create table test
+select status , amount from orders 
+union 
+select name , lastname from users;
+
+select * from test;
+
+insert into test
+select status , amount from orders 
+union 
+select name , lastname from users;
+
+
+# Na koji datum narudžbe je prodan najskuplji (priceEach) proizvod?
+select a.order_date, b.price
+from orders a 
+inner join bought b on a.id = b.orders
+where b.price = (select max(b.price) from bought b);
+
+# obrisati sve proizvode koji nisu niti na jednoj narudÅ¾bi
+
+delete from products where id not in 
+(select distinct product from bought);
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
