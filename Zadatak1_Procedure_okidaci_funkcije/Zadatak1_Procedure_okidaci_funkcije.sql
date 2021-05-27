@@ -80,25 +80,31 @@ alter table muskarac add foreign key (neprijateljica) references neprijateljica(
 
 insert into sestra (id,introventno,narukvica) values (1000,1,1);
 select * from sestra;
- 
+
 DELIMITER $$
 create function tipovi(a int) returns int begin 
 	return a between 980 and 5098;
 end;
 $$ 
 DELIMITER ;
-
+  
 
 #2. Kreirajte proceduru zadatak2 koja unosi 56872 zapisa u tablicu zarucnica (7). Izvesti proceduru jednom 
 #tako da u tablici bude toèno 56872 zapisa (7). 
 
-DELIMITER $$ 
-create procedure UNOSS(prstena int, modelnaocala varchar(35),nausnica int)
-begin 
-	insert into zarucnica 
-	values(prstena,modelnaocala,nausnica)
-end;
+delimiter $$
+create procedure test(in zarucnicasifra int)
+begin
+set @id=zarucnicasifra;
+while @id<=56872
+	insert into zarucnica(id,prstena,modelnaocala,nausnica) values(@id,1,"var",1);
+	set @id = @id+1;
+end
 $$
 delimiter ;
+
+#3. Kreirajte okidaè zadatak3 nakon insert-a u tablicu zarucnica tako da za svaki unos u tablicu zarucnica 
+#napravi po dva unosa u tablicu punac (7). Okidaè je u funkciji, tablica punac ima dvostruko više zapisa od 
+#tablice zarucnica (7).
 
 
