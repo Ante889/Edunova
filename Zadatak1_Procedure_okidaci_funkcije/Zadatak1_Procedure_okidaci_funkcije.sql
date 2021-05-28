@@ -93,17 +93,17 @@ DELIMITER ;
 #tako da u tablici bude toèno 56872 zapisa (7). 
 
 delimiter $$
-create procedure test(in zarucnicasifra int)
+create procedure Zapis()
 begin
-set @id=zarucnicasifra;
-while @id<=56872
-	insert into zarucnica(id,prstena,modelnaocala,nausnica) values(@id,1,"var",1);
-	set @id = @id+1;
-end
+declare i int default 0;
+while (i <=56872) do 
+	insert into zarucnica(prstena,modelnaocala,nausnica) values(i,i,i);
+	set i = i+1;
+end while;
+end;
 $$
 delimiter ;
-
-#Ne znam...
+select count(*) from zarucnica;
 
 #3. Kreirajte okidaè zadatak3 nakon insert-a u tablicu zarucnica tako da za svaki unos u tablicu zarucnica 
 #napravi po dva unosa u tablicu punac (7). Okidaè je u funkciji, tablica punac ima dvostruko više zapisa od 
@@ -116,4 +116,7 @@ begin
 end;
 $$
 delimiter ;
+
+
+
 
