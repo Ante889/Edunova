@@ -103,8 +103,17 @@ end
 $$
 delimiter ;
 
+#Ne znam...
+
 #3. Kreirajte okidaè zadatak3 nakon insert-a u tablicu zarucnica tako da za svaki unos u tablicu zarucnica 
 #napravi po dva unosa u tablicu punac (7). Okidaè je u funkciji, tablica punac ima dvostruko više zapisa od 
 #tablice zarucnica (7).
 
+delimiter $$
+create trigger unos_zarucnice after insert on zarucnica for each row 
+begin 
+	insert into punac (novcica) values (1.1),(1.1);
+end;
+$$
+delimiter ;
 
