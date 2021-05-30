@@ -113,3 +113,34 @@ $$
 delimiter ;
 
 select count(*) from djevojka;
+
+#4. Kreirajte proceduru zadatak4 koja iz tablice ostavljen zbraja svaku 8 vrijednost id-a (1,8,16,...). U tablicu
+#neprijatelj se unosi broj zapisa koji odgovaraju izraèunatoj sumi (7). Izvesti proceduru jednom tako da u
+#tablici neprijatelj bude toèan broj zapisa koji odgovaraju sumi odabranih brojeva (8).
+delimiter $$
+create procedure Zadatak4(in BrojRedova int) 
+begin 
+	declare A int default 0;
+    declare B int default 0;
+    declare C int default 1;
+   	declare D int default 0;
+	while (A < BrojRedova) do
+	set B = B+1;
+	set A = A+1;
+	if (B = 8) then 
+	set B = 0;
+	set C = C + A;
+	end if;
+	end while;
+	if (A = BrojRedova) then 
+	while (D < C) do
+	insert into neprijatelj (gustoca, treciputa, narukvica) values(1.1, now(),1);
+	set D = D+1;
+	end while;
+	end if;
+end;
+$$
+delimiter ;
+select count(*) from ostavljen; #33502
+call Zadatak4(33502);## Previše
+select count(*) from neprijatelj; 
