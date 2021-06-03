@@ -1,0 +1,12 @@
+*{
+  margin:auto;
+  max-width: 1200px;
+
+}
+.space{
+  height: 80px;
+}
+
+.category{
+  border-style: double;
+}
