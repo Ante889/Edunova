@@ -10,3 +10,19 @@
 .category{
   border-style: double;
 }
+
+.f-dropdown1 {
+  outline: none;
+}
+
+.custom-button{
+  border-radius: 8px;
+}
+.checked {
+  color: orange;
+}
+
+.custom-p
+{
+    display:inline;
+}
