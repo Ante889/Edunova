@@ -82,5 +82,3 @@
 include "Include/Footer.php";
 
 ?>
-
-<script>$(document).foundation();</script>

@@ -26,3 +26,16 @@
 {
     display:inline;
 }
+
+.log-in-form {
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  border-radius: 0;
+}
+
+.max-width-700{
+
+  max-width: 700px;
+  margin:auto;
+
+}

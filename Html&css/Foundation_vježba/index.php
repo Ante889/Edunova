@@ -117,5 +117,3 @@ include "Include/BestBuy.php";
 include "Include/Footer.php";
 
 ?>
-
-<script>$(document).foundation();</script>
