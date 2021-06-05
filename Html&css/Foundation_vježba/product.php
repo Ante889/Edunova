@@ -49,7 +49,7 @@
             <span class="fa fa-star"></span> 
             <p class="custom-p">(Broj ljudi koji su ocjenili)</p>
             <hr>
-            <a href="#" class="button large expanded custom-button">Add to cart</a>
+            <a href="cart.php" class="button large expanded custom-button">Add to cart</a>
             </div>
         </div>
 

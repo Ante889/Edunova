@@ -9,7 +9,7 @@
             <li class="menu-text">Site Title</li>
             <li><a href="index.php">Home</a></li>
             <li><a href="index.php">My books</a></li>
-            <li><a href="#0">Cart</a></li>
+            <li><a href="cart.php">Cart</a></li>
             <li><a href="#0">Contact us</a></li>
             <li><a href="#0">Login</a></li>
             <li><a href="#0">Logout</a></li>
