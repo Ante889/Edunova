@@ -8,7 +8,7 @@
           <ul class="submenu menu" data-submenu>
             <li class="menu-text">Site Title</li>
             <li><a href="index.php">Home</a></li>
-            <li><a href="index.php">My books</a></li>
+            <li><a href="exercising.php">My books</a></li>
             <li><a href="cart.php">Cart</a></li>
             <li><a href="contact.php">Contact us</a></li>
             <li><a href="login.php">Login</a></li>
