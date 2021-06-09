@@ -21,16 +21,43 @@ include 'includes/database.php';
   </head>
 <body>
 
-  <form>
+<div class="grid-x">
+  <div class="cell small-6">
+
+  
+  <form method= "POST">
     <div class="sign-in-form">
-      <h4 class="text-center">Sign In</h4>
+      <h4 class="text-center">Register</h4>
       <label for="sign-in-form-username">Username</label>
       <input type="text" class="sign-in-form-username" id="sign-in-form-username">
+      <label for="sign-in-form-username">Email</label>
+      <input type="email" class="sign-in-form-username" id="sign-in-form-username">
       <label for="sign-in-form-password">Password</label>
-      <input type="text" class="sign-in-form-password" id="sign-in-form-password">
+      <input type="password" class="sign-in-form-password" id="sign-in-form-password">
+      <label for="sign-in-form-password">Confirm password</label>
+      <input type="password" class="sign-in-form-password" id="sign-in-form-password">
+
+      <button type="submit" class="sign-in-form-button">Register</button>
+    </div>
+  </form>
+
+  </div>
+  <div class="cell small-6">
+    
+  <form method= "POST">
+    <div class="sign-in-form">
+      <h4 class="text-center">Sign In</h4>
+      <label for="sign-in-form-username">Email</label>
+      <input type="email" class="sign-in-form-username" id="sign-in-form-username">
+      <label for="sign-in-form-password">Password</label>
+      <input type="password" class="sign-in-form-password" id="sign-in-form-password">
       <button type="submit" class="sign-in-form-button">Sign In</button>
     </div>
   </form>
+
+  </div>
+</div>
+
   
   
 
