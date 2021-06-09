@@ -26,7 +26,7 @@ class Database
     function Query($sql){
 
         $Query = $this -> Database -> query($sql);
-        $this-> Confirm_Query($Query);
+        $this-> Comfirm_Query($Query);
         return $Query;
     }
 
@@ -35,7 +35,7 @@ class Database
     private function Comfirm_Query($Result){
         
         if (!$Result) {
-            die ("Query FAILED ".$this ->db-> error);
+            die ("Query FAILED ".$this ->Database-> error);
         }
     }
         
@@ -43,7 +43,7 @@ class Database
 
     function Escape($string){
 
-        $Escape_string = mysql_real_escape_string($this -> Database, $string);
+        $Escape_string = mysqli_real_escape_string($this -> Database, $string);
         return $Escape_string;
     } 
 }
