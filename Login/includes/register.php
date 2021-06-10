@@ -4,7 +4,7 @@
 class register
 {
     function register_user($Username, $Email, $Password, $Confirm_password){
-
+        global $Database;
         $Errors = array(
             'Password' => '',
             'Email' => '',
@@ -20,7 +20,8 @@ class register
         }elseif(empty($Username) || empty($Password) || empty($Email) || empty($Confirm_password)){
             $Errors['Empty'] = "Cannot be empty";
         }else{
-            $this -> insert_into_database($Username,$Email,$Password);
+            $Password = password_hash($Database -> escape($Password), PASSWORD_BCRYPT, ['cost' => 12]);
+            $this -> insert_into_database($Database -> escape($Username),$Database -> escape($Email),$Password);
         }
         return $Errors;
     }
