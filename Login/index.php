@@ -2,6 +2,7 @@
 
 include 'includes/database.php';
 include 'includes/register.php';
+include 'includes/login.php';
 
 ?>
 
@@ -42,23 +43,6 @@ include 'includes/register.php';
     </div>
   </form>
 
-  </div>
-  <div class="cell small-6">
-    
-  <form method= "POST">
-    <div class="sign-in-form">
-      <h4 class="text-center">Sign In</h4>
-      <label for="sign-in-form-username">Email</label>
-      <input type="email" class="sign-in-form-username" id="sign-in-form-username">
-      <label for="sign-in-form-password">Password</label>
-      <input type="password" class="sign-in-form-password" id="sign-in-form-password">
-      <button type="submit" class="sign-in-form-button">Sign In</button>
-    </div>
-  </form>
-
-  </div>
-</div>
-
 <?php
 
 if(isset($_POST['submit'])){
@@ -67,6 +51,32 @@ if(isset($_POST['submit'])){
 }
 
 ?>
+
+  </div>
+  <div class="cell small-6">
+    
+  <form method= "POST">
+    <div class="sign-in-form">
+      <h4 class="text-center">Sign In</h4>
+      <label for="sign-in-form-username">Email</label>
+      <input type="email" name="Login-Email" class="sign-in-form-username" id="sign-in-form-username">
+      <label for="sign-in-form-password">Password</label>
+      <input type="password" name="Login-Password" class="sign-in-form-password" id="sign-in-form-password">
+      <button type="submit" name="Login-Submit" class="sign-in-form-button">Sign In</button>
+    </div>
+  </form>
+
+  </div>
+</div>
+
+<?php
+
+if(isset($_POST['Login-Submit'])){
+  
+}
+
+?>
+
 
 <script src="assets/js/vendor.js"></script>
 <script src="assets/js/foundation.js"></script>
