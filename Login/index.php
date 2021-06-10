@@ -1,6 +1,7 @@
 <?php 
 
 include 'includes/database.php';
+include 'includes/register.php';
 
 ?>
 
@@ -29,15 +30,15 @@ include 'includes/database.php';
     <div class="sign-in-form">
       <h4 class="text-center">Register</h4>
       <label for="sign-in-form-username">Username</label>
-      <input type="text" class="sign-in-form-username" id="sign-in-form-username">
+      <input type="text" name="username" class="sign-in-form-username" id="sign-in-form-username">
       <label for="sign-in-form-username">Email</label>
-      <input type="email" class="sign-in-form-username" id="sign-in-form-username">
+      <input type="email" name="email" class="sign-in-form-username" id="sign-in-form-username">
       <label for="sign-in-form-password">Password</label>
-      <input type="password" class="sign-in-form-password" id="sign-in-form-password">
+      <input type="password" name="password" class="sign-in-form-password" id="sign-in-form-password">
       <label for="sign-in-form-password">Confirm password</label>
-      <input type="password" class="sign-in-form-password" id="sign-in-form-password">
+      <input type="password" name="confirm_password" class="sign-in-form-password" id="sign-in-form-password">
 
-      <button type="submit" class="sign-in-form-button">Register</button>
+      <button type="submit" name="submit" class="sign-in-form-button">Register</button>
     </div>
   </form>
 
@@ -58,9 +59,14 @@ include 'includes/database.php';
   </div>
 </div>
 
-  
-  
+<?php
 
+if(isset($_POST['submit'])){
+  $Errors =  $Register -> register_user($_POST['username'], $_POST['email'], $_POST['password'], $_POST['confirm_password']);
+  print_r ($Errors);
+}
+
+?>
 
 <script src="assets/js/vendor.js"></script>
 <script src="assets/js/foundation.js"></script>
