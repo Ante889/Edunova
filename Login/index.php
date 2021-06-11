@@ -1,9 +1,13 @@
 <?php 
-
+session_start();
 include 'includes/database.php';
 include 'includes/register.php';
 include 'includes/login.php';
-
+echo" <br>";
+if($Login-> is_login == true){
+echo $_SESSION['User_id'] .'- id <br>';
+echo $_SESSION['Role'].'- role <br>';
+}
 ?>
 
 
@@ -72,7 +76,11 @@ if(isset($_POST['submit'])){
 <?php
 
 if(isset($_POST['Login-Submit'])){
-  
+  if($Login -> Login($_POST['Login-Email'], $_POST['Login-Password'])){
+    echo 'ulogiran';
+  }else{
+    echo 'nije ulogiran';
+  }
 }
 
 ?>
