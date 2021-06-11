@@ -3,14 +3,34 @@
 class login 
 {
     public $id;
-    public $Email;
-    public $Password;
+    public $role;
     public $is_login;
 
     function __construct(){
+
+        $this -> check_the_login();
+    
     }
 
     function Login($Email, $Password){
+
+        if($this->Check_email_and_password($Email, $Password)){
+            $_SESSION['Role'] = $this->role;
+            $_SESSION['User_id'] = $this-> id; 
+            $this -> is_login = true;
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    function Logout(){
+
+        unset($this->id);
+        unset($_SESSION['User_id']);
+        $this -> is_login = false;
+
     }
     
     function Check_email_and_password($Email,$Password){
@@ -24,19 +44,31 @@ class login
             return false;
         }else{
         while($row= $result -> fetch_assoc()){
-             $Hash_Pass= $row["password"];
+            $this -> id = $row['id'];
+            $this -> role = $row['role'];
+            $Hash_Pass= $row["password"];
         }
-        if(password_verify($Password,$Hash_Pass)){
+        if(isset($Hash_Pass) && password_verify($Password,$Hash_Pass)){
             return true; 
         }else{
            return false;
         }
     }
-    }
+}
+
+    private function check_the_login(){
+		if(isset($_SESSION['User_id'])){
+			$this -> is_login = true;
+		}else{
+			unset($this -> id);
+			$this -> is_login = false;
+		}
+	}
 }
 
 
 
 $Login = new login();
+
 
 ?>
