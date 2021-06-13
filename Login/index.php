@@ -5,9 +5,15 @@ include 'includes/register.php';
 include 'includes/login.php';
 echo" <br>";
 if($Login-> is_login == true){
-echo $_SESSION['User_id'] .'- id <br>';
-echo $_SESSION['Role'].'- role <br>';
+echo 'Ulogiran user -' . $_SESSION['User_id'] .'<br>';
+echo 'Role usera -' .$_SESSION['Role'].'<br>';
+echo "<a class='alert button' href='includes/logout.php'>Logout</a>";
 }
+
+if(isset($_POST['submit'])){
+  $Errors =  $Register -> register_user($_POST['username'], $_POST['email'], $_POST['password'], $_POST['confirm_password']);
+}
+
 ?>
 
 
@@ -44,17 +50,13 @@ echo $_SESSION['Role'].'- role <br>';
       <input type="password" name="confirm_password" class="sign-in-form-password" id="sign-in-form-password">
 
       <button type="submit" name="submit" class="sign-in-form-button">Register</button>
+      <h4 style="color: red"><?php 
+      if(isset($Errors['Password']) || isset($Errors['Email']) || isset($Errors['Empty'])){
+      echo $Errors['Password'], $Errors['Email'],$Errors['Empty']; 
+      }
+      ?></h4>
     </div>
   </form>
-
-<?php
-
-if(isset($_POST['submit'])){
-  $Errors =  $Register -> register_user($_POST['username'], $_POST['email'], $_POST['password'], $_POST['confirm_password']);
-  print_r ($Errors);
-}
-
-?>
 
   </div>
   <div class="cell small-6">
@@ -77,9 +79,7 @@ if(isset($_POST['submit'])){
 
 if(isset($_POST['Login-Submit'])){
   if($Login -> Login($_POST['Login-Email'], $_POST['Login-Password'])){
-    echo 'ulogiran';
-  }else{
-    echo 'nije ulogiran';
+    Header('Location: index.php');
   }
 }
 
