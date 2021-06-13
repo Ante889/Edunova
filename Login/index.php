@@ -70,6 +70,13 @@ if(isset($_POST['submit'])){
       <input type="password" name="Login-Password" class="sign-in-form-password" id="sign-in-form-password">
       <button type="submit" name="Login-Submit" class="sign-in-form-button">Sign In</button>
     </div>
+    <br>
+    <div class="sign-in-form">
+      <h4 class="text-center">Forget password</h4>
+      <label for="sign-in-form-username">Email</label>
+      <input type="email" name="Login-Email" class="sign-in-form-username" id="sign-in-form-username">
+      <button type="submit" name="Login-Submit" class="sign-in-form-button">Sign In</button>
+    </div>
   </form>
 
   </div>
