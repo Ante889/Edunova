@@ -7,38 +7,60 @@ if(isset($_POST['submit'])){
   $brojStupaca = $_POST['BrojStupaca'];
 }
 
-createArray(5,5);
+createArray(4,4);
 function createArray($column, $row){
 
     $result = array();
     $current_row= 1;
     $current_column=1;
     $current_number=1;
-    $finished_rows=0;
-    $finished_column=0;
 
-
-
-        for ($i=$current_column; $i <= $column-$finished_column ; $i++) { 
+    for ($z=0; $z < $row ; $z++) { 
+        for ($i=$current_column; $i <= $column; $i++) { 
+            if(isset($result[$current_row][$i])){
+                continue;
+            }else{
             $result[$current_row][$i] = $current_number++;
-            if($i == $column){
-                $current_row++;
+            if($i == $column - $z){
                 $current_column=$i;
-                $finished_rows++;
             } 
+            }
+            
         }
-        for ($a= $current_row; $a <= $row-$finished_rows; $a++) { 
+        for ($a= $current_row; $a <= $row; $a++) { 
+            if(isset($result[$a][$current_column])){
+                continue;
+            }else{
             $result[$a][$current_column]=$current_number++;
-            if($a == $row){
+            if($a == $row - $z){
                 $current_row=$a;
-                $current_column--;
-                $finished_column++;
             }
         }
-
-
-
-
+    }
+        for ($b=$current_column; $b > 0; $b--) { 
+            if(isset($result[$current_row][$b])){
+                continue;
+            }else{
+            $result[$current_row][$b] = $current_number++;
+            if($b == 1 + $z){
+                $current_column=$b;
+            } 
+        }
+    }
+        for ($c= $current_row; $c >= 1; $c--) { 
+            if(isset($result[$c][$current_column])){
+                continue;
+            }else{
+            $result[$c][$current_column]=$current_number++;
+            if($c == 2 +$z){
+                $current_row=$c;
+            }
+        }
+    }
+ }
+        
+         
+        
 
     echo 'row ' . $current_row .'<br>';
     echo 'colum ' . $current_column .'<br>';
