@@ -1,0 +1,15 @@
+*{
+   margin:auto;
+   margin-top: 10%;
+   max-width: 1200px;
+}
+
+.custom-left-div{
+   padding-left:100px;
+
+}
+
+.custom-form{
+   width: 20%;
+   border-radius: 10px;
+}

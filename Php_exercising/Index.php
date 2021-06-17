@@ -1,67 +1,44 @@
-<?php
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="assets/css/foundation.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+  </head>
+<body>
 
-$i=1; $j=0;
+<?php include 'php.php';?>
 
-$i = $j++; // i=0 j=1
+  <div class="callout">
+    
+    <div class="grid-x">
+      <div class="cell small-6 custom-left-div">
+        
+        <form action="" method="post">
+          <label for="BrojRedaka">Broj redaka</label>
+          <input class="custom-form" type="text" name="BrojRedaka" id="BrojRedaka">
 
-$i = $j++ - --$i;// i=2 j=2
+          <label for="BrojStupaca">Broj stupaca</label>
+          <input class="custom-form" type="text" name="BrojStupaca" id="BrojStupaca">
 
-$j = ++$i - --$j;// i=3 j=2
+          <input class="success button" type="submit" name="submit" value="KREIRAJ TABLICU">
+        </form>
 
-echo $j + ++$i; //=2 + 4 = 6 
+      </div>
+      <div class="cell small-6">
+      </div>
 
+      </div>
+    </div>
 
-
-/////////////////////////////
-
-
-$i=7; $j=5;
-
-$j= --$i; // i=6 j=6
-
-$i = $j++; // i=6 j=7
-
-$i = $j - $i++; // i=1 j=7
-
-$j = ++$i - $j++; // i=2 j=-5
-
-$i = $j++ - --$i; // i=-6 j=-4
-
-$j = $i-- - --$j; // i=-7 j=-1
-
-echo $j + ++$i; //= -1 + -6 = -7
-
-
-///////////////////////////////
-
-
-$i=4; $j=3;
-
-$j= $i--; // i=3 j=4
-
-$i = ++$j; // i=5 j=5
-
-$i = --$j - ++$i; // i=-2 j=4
-
-$j = --$i - --$j; // i=-3 j=-6
-
-$i = $j++ - $i++; // i=-3 j=-5
-
-$j = --$i - $j++; // i=-4 j=1
-
-echo $j-- + $i++; //= 1 + (-4) = ///-3///
+  </div>
 
 
 
-/////////////////////////
-
-
-$i=1; $j=0;
-
-$j= $i++; // i=2 j=1
-
-$i = $i++ - ++$i; // i=-2 j=1
-
-$j = --$j - $j--; // i=-2 j=0
-
-echo --$j + $i++; //=-1 + (-2) = -3 
+<script src="assets/js/vendor.js"></script>
+<script src="assets/js/foundation.js"></script>
+</body>
+</html>
