@@ -10,7 +10,11 @@
   </head>
 <body>
 
-<?php include 'php.php';?>
+<?php include 'php.php';
+
+
+
+?>
 
   <div class="callout">
     
@@ -29,13 +33,25 @@
 
       </div>
       <div class="cell small-6">
+      <?php 
+        if(isset($_POST['submit'])){
+
+          if($_POST['BrojStupaca'] > 0 && $_POST['BrojRedaka'] > 0){
+            createArray($_POST['BrojStupaca'],$_POST['BrojRedaka']);
+          }else{
+            echo "error";
+          }
+
+          
+        }
+      ?>
       </div>
 
       </div>
     </div>
 
   </div>
-
+  
 
 
 <script src="assets/js/vendor.js"></script>
