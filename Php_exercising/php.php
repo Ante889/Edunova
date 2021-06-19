@@ -11,7 +11,7 @@ function createArray($column, $row){
     $number_of_rotate_arrays=0;
     $true=0;
     
-            for ($z=0; $z <$row*2; $z++) { 
+            for ($z=0; $z <$row; $z++) { 
 
                 
                 for ($i=$current_column; $i <= $column; $i++) { 
@@ -24,7 +24,7 @@ function createArray($column, $row){
                         continue;
                     }else{
                     if(isset($result_arrows['left'][$i])){
-                        $result_arrows['left'][$i+12*$z]=$current_number;
+                        $result_arrows['left'][$current_number]=$current_number;
                     }else{
                         $result_arrows['left'][$i]=$current_number;
                     }
@@ -48,7 +48,7 @@ function createArray($column, $row){
                         continue;
                     }else{
                         if(isset($result_arrows['up'][$a])){
-                            $result_arrows['up'][$a+12*$z]=$current_number;
+                            $result_arrows['up'][$current_number]=$current_number;
                         }else{
                             $result_arrows['up'][$a]=$current_number;
                         }
@@ -70,7 +70,7 @@ function createArray($column, $row){
                         continue;
                     }else{
                         if(isset($result_arrows['right'][$b])){
-                            $result_arrows['right'][$b+12*$z]=$current_number;
+                            $result_arrows['right'][$current_number]=$current_number;
                         }else{
                             $result_arrows['right'][$b]=$current_number;
                         }
@@ -92,7 +92,7 @@ function createArray($column, $row){
                         continue;
                     }else{
                         if(isset($result_arrows['down'][$c])){
-                            $result_arrows['down'][$c+12*$z]=$current_number;
+                            $result_arrows['down'][$current_number]=$current_number;
                         }else{
                             $result_arrows['down'][$c]=$current_number;
                         }
