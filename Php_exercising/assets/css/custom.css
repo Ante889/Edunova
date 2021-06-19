@@ -1,16 +1,16 @@
-*{
+.callout{
    margin:auto;
    margin-top: 10%;
-   max-width: 1200px;
+   max-width: 90%;
 }
 
 .custom-left-div{
-   padding-left:100px;
+   padding-left:20px;
 
 }
 
 .custom-form{
-   width: 20%;
+   width: 50%;
    border-radius: 10px;
 }
 
