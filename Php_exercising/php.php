@@ -104,49 +104,43 @@ function createArray($column, $row){
                 }
             }
         }
+        
         if($end_number<5){
             $result_arrows['down'][0]=null;
         }
 
-        foreach($result as $row => $value){
-            $row_value_sum= count($result[$row]); 
-            $row_sum =count($result); 
 
-            if($row == $row_sum){
+        for ($s=$row; $s >= 1 ; $s--) { 
 
-                for ($s=$row_sum; $s >= 1 ; $s--) { 
-
-                    for ($j=$row_value_sum; $j >=1; $j--) { 
-                        if($result[$s][$j] === $end_number){
-                            echo "<div class='square'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['left']) && !in_array($result[$s][$j], $result_arrows['rotate-arrays']) ){
-                            echo "<div class='square-left'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['right']) &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                            echo "<div class='square-right'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['up'])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                            echo "<div class='square-up'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['down'])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                            echo "<div class='square-down'>".$result[$s][$j]."</div>";
-                        }
-
-                        
-                        if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
-
-                        if(in_array($result[$s][$j], $result_arrows['left'])){
-                            echo "<div class='square-up'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['right'])){
-                            echo "<div class='square-down'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['up'])){
-                            echo "<div class='square-right'>".$result[$s][$j]."</div>";
-                        }elseif(in_array($result[$s][$j], $result_arrows['down'])){
-                            echo "<div class='square-left'>".$result[$s][$j]."</div>";
-                        }
-                    }
-                        if($j == 1){
-                            echo '<br>';
-                    }
+            for ($j=$column; $j >=1; $j--) { 
+                if($result[$s][$j] === $end_number){
+                    echo "<div class='square'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['left']) && !in_array($result[$s][$j], $result_arrows['rotate-arrays']) ){
+                    echo "<div class='square-left'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['right']) &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<div class='square-right'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['up'])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<div class='square-up'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['down'])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<div class='square-down'>".$result[$s][$j]."</div>";
                 }
-            }  
+
+                
+                if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+
+                if(in_array($result[$s][$j], $result_arrows['left'])){
+                    echo "<div class='square-up'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['right'])){
+                    echo "<div class='square-down'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['up'])){
+                    echo "<div class='square-right'>".$result[$s][$j]."</div>";
+                }elseif(in_array($result[$s][$j], $result_arrows['down'])){
+                    echo "<div class='square-left'>".$result[$s][$j]."</div>";
+                }
+            }
+                if($j == 1){
+                    echo '<br>';
+            }
         }
     }
 }
