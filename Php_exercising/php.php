@@ -1,25 +1,38 @@
 <?php
 
+if(isset($_POST['submit'])){
+
+    if($_POST['BrojStupaca'] > 0 && $_POST['BrojRedaka'] > 0){
+      createArray($_POST['BrojStupaca'],$_POST['BrojRedaka']);
+    }else{
+      echo "error";
+    }
+
+    
+  }
+
 function createArray($column, $row){
 
-    $result = array();
-    $result_arrows=array();
-    $end_number= $row*$column;
-    $current_row= 1;
-    $current_column=1;
-    $current_number=1;
-    $number_of_rotate_arrays=0;
-    $true=0;
+    $result = array(); //niz za matrix
+    $result_arrows=array(); // niz za smjer
+    $end_number= $row*$column; //najveći broj u nizu 
+    $current_row= 1; // Trenutni red
+    $current_column=1; // Trenutna kolona 
+    $current_number=1; // Trenutni broj koji ide u niz
+    $number_of_rotate_arrays=0; //Key za 'rotate-arrays' niz
+    $true=0; // if u for-u će se dogoditi samo jednom
     
-            for ($z=0; $z <$row; $z++) { 
+            //Provjeri koliko je row i prođi kroz forloop toliko puta
+            for ($z=0; $z <=$row; $z++) { 
 
-                
+               //Prolazak kroz matrix u 4 for-a
                 for ($i=$current_column; $i <= $column; $i++) { 
+                    //Zadnji broj će ući u 'rotate-arrays' i njega će trebati okrenuti
                     if($true==0){
                         $result_arrows['rotate-arrays'][$number_of_rotate_arrays++]=$current_number-1;
                         $true=1;
                     }
-
+                    //Provjeri je li broj već dodan u neki red, ako nije dodaj mu stranu, red, kolonu,broj
                     if(isset($result[$current_row][$i])){                 
                         continue;
                     }else{
@@ -29,6 +42,7 @@ function createArray($column, $row){
                         $result_arrows['left'][$i]=$current_number;
                     }
                     $result[$current_row][$i] = $current_number++;
+                    //Označi da je jedan red gotov i odredi poziciju za idući red
                     if($i == $column - $z){
                         $current_column=$i;
                         $true=0;
@@ -104,14 +118,26 @@ function createArray($column, $row){
                 }
             }
         }
-        
-        if($end_number<5){
-            $result_arrows['down'][0]=null;
+        //U slučaju da ne može doći do loop-a bit će eror kad budemo prikazivali
+        switch ($result_arrows) {
+            case empty($result_arrows['down']):
+                $result_arrows['down'][0]=null;
+                break;
+            case empty($result_arrows['up']):
+                $result_arrows['up'][0]=null;
+                break;    
+            case empty($result_arrows['left']):
+                $result_arrows['left'][0]=null;
+                break;
+            case empty($result_arrows['right']):
+                $result_arrows['right'][0]=null;
+                break;              
         }
 
-
+        //Prođi kroz redove 
         for ($s=$row; $s >= 1 ; $s--) { 
 
+            //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
             for ($j=$column; $j >=1; $j--) { 
                 if($result[$s][$j] === $end_number){
                     echo "<div class='square'>".$result[$s][$j]."</div>";
@@ -125,7 +151,7 @@ function createArray($column, $row){
                     echo "<div class='square-down'>".$result[$s][$j]."</div>";
                 }
 
-                
+                //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
                 if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
 
                 if(in_array($result[$s][$j], $result_arrows['left'])){
