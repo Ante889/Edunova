@@ -10,16 +10,11 @@
   </head>
 <body>
 
-<?php include 'php.php';
-
-
-
-?>
 
   <div class="callout">
     
     <div class="grid-x">
-      <div class="cell small-6 custom-left-div">
+      <div class="cell small-4 custom-left-div">
         
         <form action="" method="post">
           <label for="BrojRedaka">Broj redaka</label>
@@ -32,18 +27,9 @@
         </form>
 
       </div>
-      <div class="cell small-6">
+      <div class="cell small-8">
       <?php 
-        if(isset($_POST['submit'])){
-
-          if($_POST['BrojStupaca'] > 0 && $_POST['BrojRedaka'] > 0){
-            createArray($_POST['BrojStupaca'],$_POST['BrojRedaka']);
-          }else{
-            echo "error";
-          }
-
-          
-        }
+      include 'php.php';
       ?>
       </div>
 
