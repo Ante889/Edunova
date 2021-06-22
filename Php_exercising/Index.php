@@ -5,39 +5,45 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrix spiral</title>
-    <link rel="stylesheet" href="assets/css/foundation.css">
     <link rel="stylesheet" href="assets/css/custom.css">
   </head>
 <body>
 
-
-  <div class="callout">
-    
-    <div class="grid-x">
-      <div class="cell small-4 custom-left-div">
-        
+<div class="flex-container">
+  <div class="flex-item-left">
         <form action="" method="post">
           <label for="BrojRedaka">Broj redaka</label>
           <input class="custom-form" type="text" name="BrojRedaka" id="BrojRedaka">
-
+          <br>
           <label for="BrojStupaca">Broj stupaca</label>
           <input class="custom-form" type="text" name="BrojStupaca" id="BrojStupaca">
-
-          <input class="success button" type="submit" name="submit" value="KREIRAJ TABLICU">
+          <br>
+          <label for="StranaKretanja">Strana kretanja</label>
+          <select name="StranaKretanja" id="StranaKretanja">
+          <option value="">odaberi opciju</option>
+            <option value="gore-desno">gore-desno</option>
+            <option value="dolje-desno">dolje-desno</option>
+            <option value="dolje-lijevo">dolje-lijevo</option>
+            <option value="gore-lijevo">gore-lijevo</option>
+          </select>
+          <br>
+          <label for="KreniOdSredine">Kreni od sredine</label>
+          <input type="checkbox" name="Kreniodsredine" id="Kreniodsredine">
+          <br>
+          <label for="Obrnuto">Obrnuto</label>
+          <input type="checkbox" name="Obrnuto" id="Obrnuto">
+          <br>
+          <input type="submit" name="submit" value="KREIRAJ TABLICU">
         </form>
 
-      </div>
-      <div class="cell small-8">
+    </div>
+    <div class="flex-item-right">
       <?php 
+
       include 'php.php';
       ?>
-      </div>
-
-      </div>
-    </div>
-
-  </div>
-  
+</div>
+</div>
 
 
 <script src="assets/js/vendor.js"></script>

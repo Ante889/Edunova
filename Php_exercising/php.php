@@ -134,21 +134,18 @@ function createArray($column, $row){
                 break;              
         }
         //Prođi kroz redove 
-        $s=0;
-        $result_column;
+        $result_column=array();;
         $a=0;
         foreach($result as $key){
             $a++;
             for ($i=1; $i <=5 ; $i++) { 
-                echo $result_column[$i][$a]=$key[$i];
+                $result_column[$i][$a]=$key[$i];
             }
         }
 
-?>
-<pre><?php print_r($result)?></pre>
-<pre><?php print_r($result_column)?></pre>
-        <table>    
-        <?php 
+
+        echo '<table>';    
+
         for ($s=$row; $s >= 1 ; $s--) { 
             echo "<tr>";
             //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
@@ -183,7 +180,4 @@ function createArray($column, $row){
         echo "</tr>";
     }
 }
-
-?>
-
-</table>    
+echo '</table>'; 
