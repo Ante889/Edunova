@@ -121,6 +121,20 @@ function createArray($column, $row,$Reverse){
                 }
             }
         }
+        echo '<hr>';
+        //Obrnuto
+        if($Reverse == TRUE){
+            $result_column=array();;
+            $a=0;
+            foreach($result as $key){
+                $a++;
+                for ($i=1; $i <=$column ; $i++) { 
+                    $result_column[$i][$a]=$key[$i];
+                }
+            }
+            $result= $result_column;
+        }
+
         //U slučaju da ne može doći do loop-a bit će eror kad budemo prikazivali
         switch ($result_arrows) {
             case empty($result_arrows['down']):
@@ -136,37 +150,28 @@ function createArray($column, $row,$Reverse){
                 $result_arrows['right'][0]=null;
                 break;              
         }
-        //Obrnuto
-        if($Reverse == TRUE){
-        $result_column=array();;
-        $a=0;
-        foreach($result as $key){
-            $a++;
-            for ($i=1; $i <=5 ; $i++) { 
-                $result_column[$i][$a]=$key[$i];
-            }
-        }
-        $result= $result_column;
-    }
    
         //Smjerovi
 
         if($Reverse){
             $Direction=array('up','down','left','right');
             $Rotate_direction=array('td-right-down','td-left-up','td-left-down','td-right-up');
+            $rows=$column;
+            $columns=$row;
         }else{
             $Direction=array('left','right','up','down');
             $Rotate_direction=array('td-right-up','td-left-down','td-right-down','td-left-up');
+            $rows=$row;
+            $columns=$column;
         }
 
-        print_r($result_arrows);
         //Prođi kroz redove i prikaži 
         echo '<table>';    
 
-        for ($s=$row; $s >= 1 ; $s--) { 
+        for ($s=$rows; $s >= 1 ; $s--) { 
             echo "<tr>";
             //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
-            for ($j=$column; $j >=1; $j--) { 
+            for ($j=$columns; $j >=1; $j--) { 
                 if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
                     echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
                 }elseif(in_array($result[$s][$j], $result_arrows[$Direction[0]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays']) ){
