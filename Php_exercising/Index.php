@@ -1,3 +1,5 @@
+<?php include 'function.php'?>
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -13,10 +15,10 @@
   <div class="flex-item-left">
         <form action="" method="post">
           <label for="BrojRedaka">Broj redaka</label>
-          <input class="custom-form" type="text" name="BrojRedaka" id="BrojRedaka">
+          <input class="custom-form" type="text" name="BrojRedaka" id="BrojRedaka" value="<?php ShowInInput('BrojRedaka')?>">
           <br>
           <label for="BrojStupaca">Broj stupaca</label>
-          <input class="custom-form" type="text" name="BrojStupaca" id="BrojStupaca">
+          <input class="custom-form" type="text" name="BrojStupaca" id="BrojStupaca" value="<?php ShowInInput('BrojStupaca')?>">
           <br>
           <label for="StranaKretanja">Strana kretanja</label>
           <select name="StranaKretanja" id="StranaKretanja">
@@ -31,7 +33,7 @@
           <input type="checkbox" name="Kreniodsredine" id="Kreniodsredine">
           <br>
           <label for="Obrnuto">Obrnuto</label>
-          <input type="checkbox" name="Obrnuto" id="Obrnuto">
+          <input type="checkbox" name="Obrnuto" id="Obrnuto" <?php ShowInInputChecked('Obrnuto')?>>
           <br>
           <input type="submit" name="submit" value="KREIRAJ TABLICU">
         </form>

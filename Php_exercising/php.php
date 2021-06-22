@@ -2,8 +2,11 @@
 
 if(isset($_POST['submit'])){
 
-    if($_POST['BrojStupaca'] > 0 && $_POST['BrojRedaka'] > 0){
-      createArray($_POST['BrojStupaca'],$_POST['BrojRedaka']);
+    $Column_num=$_POST['BrojStupaca'];
+    $Row_num=$_POST['BrojRedaka'];
+    isset($_POST['Obrnuto'])?$Reverse=$_POST['Obrnuto']: $Reverse='';
+    if($Column_num > 0 && $Row_num > 0){
+      createArray($Column_num,$Row_num,$Reverse);
     }else{
       echo "error";
     }
@@ -11,7 +14,7 @@ if(isset($_POST['submit'])){
     
   }
 
-function createArray($column, $row){
+function createArray($column, $row,$Reverse){
 
     $result = array(); //niz za matrix
     $result_arrows=array(); // niz za smjer
@@ -133,7 +136,8 @@ function createArray($column, $row){
                 $result_arrows['right'][0]=null;
                 break;              
         }
-        //Prođi kroz redove 
+        //Obrnuto
+        if($Reverse == TRUE){
         $result_column=array();;
         $a=0;
         foreach($result as $key){
@@ -142,8 +146,21 @@ function createArray($column, $row){
                 $result_column[$i][$a]=$key[$i];
             }
         }
+        $result= $result_column;
+    }
+   
+        //Smjerovi
 
+        if($Reverse){
+            $Direction=array('up','down','left','right');
+            $Rotate_direction=array('td-right-down','td-left-up','td-left-down','td-right-up');
+        }else{
+            $Direction=array('left','right','up','down');
+            $Rotate_direction=array('td-right-up','td-left-down','td-right-down','td-left-up');
+        }
 
+        print_r($result_arrows);
+        //Prođi kroz redove i prikaži 
         echo '<table>';    
 
         for ($s=$row; $s >= 1 ; $s--) { 
@@ -151,28 +168,28 @@ function createArray($column, $row){
             //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
             for ($j=$column; $j >=1; $j--) { 
                 if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
-                    echo "<td class='td-no-back'>".$result_column[$s][$j]."</td>";                
-                }elseif(in_array($result[$s][$j], $result_arrows['left']) && !in_array($result[$s][$j], $result_arrows['rotate-arrays']) ){
-                    echo "<td class='td-left-right'>".$result_column[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows['right']) &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                    echo "<td class='td-left-right'>".$result_column[$s][$j]."</td>"; 
-                }elseif(in_array($result[$s][$j], $result_arrows['up'])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                    echo "<td class='td-up-down'>".$result_column[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows['down'])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                    echo "<td class='td-up-down'>".$result_column[$s][$j]."</td>";   
+                    echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[0]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays']) ){
+                    echo "<td class='td-left-right'>".$result[$s][$j]."</td>";   
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[1]]) &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<td class='td-left-right'>".$result[$s][$j]."</td>"; 
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[2]])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<td class='td-up-down'>".$result[$s][$j]."</td>";   
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[3]])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<td class='td-up-down'>".$result[$s][$j]."</td>";   
                 }
 
                 //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
                 if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
 
-                if(in_array($result[$s][$j], $result_arrows['left'])){
-                    echo "<td class='td-right-up'>".$result_column[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows['right'])){
-                    echo "<td class='td-left-down'>".$result_column[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows['up'])){
-                    echo "<td class='td-right-down'>".$result_column[$s][$j]."</td>"; 
-                }elseif(in_array($result[$s][$j], $result_arrows['down'])){
-                    echo "<td class='td-left-up'>".$result_column[$s][$j]."</td>";   
+                if(in_array($result[$s][$j], $result_arrows[$Direction[0]])){
+                    echo "<td class='$Rotate_direction[0]'>".$result[$s][$j]."</td>";   
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[1]])){
+                    echo "<td class='$Rotate_direction[1]'>".$result[$s][$j]."</td>";   
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[2]])){
+                    echo "<td class='$Rotate_direction[2]'>".$result[$s][$j]."</td>"; 
+                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[3]])){
+                    echo "<td class='$Rotate_direction[3]'>".$result[$s][$j]."</td>";   
                 }
             }
             
@@ -181,3 +198,7 @@ function createArray($column, $row){
     }
 }
 echo '</table>'; 
+
+
+
+
