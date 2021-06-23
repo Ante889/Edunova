@@ -20,7 +20,7 @@
           <label for="BrojStupaca">Broj stupaca</label>
           <input class="custom-form" type="text" name="BrojStupaca" id="BrojStupaca" value="<?php ShowInInput('BrojStupaca')?>">
           <br>
-          <label for="StranaKretanja">Strana kretanja</label>
+          <label for="StranaKretanja">Strana kretanja(trenutno ne radi)</label>
           <select name="StranaKretanja" id="StranaKretanja">
           <option value="">odaberi opciju</option>
             <option value="gore-desno">gore-desno</option>
@@ -29,7 +29,7 @@
             <option value="gore-lijevo">gore-lijevo</option>
           </select>
           <br>
-          <label for="KreniOdSredine">Kreni od sredine</label>
+          <label for="KreniOdSredine">Kreni od sredine(trenutno ne radi)</label>
           <input type="checkbox" name="Kreniodsredine" id="Kreniodsredine">
           <br>
           <label for="Obrnuto">Obrnuto</label>

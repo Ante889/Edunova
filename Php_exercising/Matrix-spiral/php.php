@@ -121,7 +121,8 @@ function createArray($column, $row,$Reverse){
                 }
             }
         }
-        echo '<hr>';
+
+
         //Obrnuto
         if($Reverse == TRUE){
             $result_column=array();;
@@ -203,7 +204,3 @@ function createArray($column, $row,$Reverse){
     }
 }
 echo '</table>'; 
-
-
-
-
