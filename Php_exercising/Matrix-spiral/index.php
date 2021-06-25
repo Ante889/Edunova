@@ -20,9 +20,9 @@
           <label for="BrojStupaca">Broj stupaca</label>
           <input class="custom-form" type="text" name="BrojStupaca" id="BrojStupaca" value="<?php ShowInInput('BrojStupaca')?>">
           <br>
-          <label for="StranaKretanja">Strana kretanja(trenutno ne radi)</label>
+          <label for="StranaKretanja">Strana kretanja</label>
           <select name="StranaKretanja" id="StranaKretanja">
-          <option value="">odaberi opciju</option>
+          <option value="<?php ShowInInput('StranaKretanja')?>"><?php ShowInInput('StranaKretanja')?></option>
             <option value="gore-desno">gore-desno</option>
             <option value="dolje-desno">dolje-desno</option>
             <option value="dolje-lijevo">dolje-lijevo</option>
