@@ -5,6 +5,9 @@ if(isset($_POST['submit'])){
     $Column_num=$_POST['BrojStupaca'];
     $Row_num=$_POST['BrojRedaka'];
     isset($_POST['Obrnuto'])?$Reverse=$_POST['Obrnuto']: $Reverse='';
+    isset($_POST['StranaKretanja'])? $MovementSide=$_POST['StranaKretanja']: $MovementSide='';
+    
+    //Pokreni ako su upisani brojevi 
     if($Column_num > 0 && $Row_num > 0){
 
       $result = array(); //niz za matrix
@@ -15,7 +18,7 @@ if(isset($_POST['submit'])){
           $result=Reverse($result, $_POST['BrojStupaca']);
       }
       $result_arrows= SetNullArrowsArray($result_arrows);
-      ShowResult($Reverse);
+      MovementSide($MovementSide,$Reverse);
 
     }else{
       echo "error";
@@ -127,6 +130,31 @@ function Reverse($array, $column)
     return $result_column;
 }
 
+//Strana kretanja
+
+function MovementSide($Side,$Reverse){
+
+    global $result;
+    switch ($Side) {
+        case 'gore-desno':
+            ShowResult_UpRight($Reverse);
+           
+            break;
+        case 'dolje-desno':
+            ShowResult_DownRight($Reverse);
+            break;
+        case 'dolje-lijevo':
+            ShowResult_DownLeft($Reverse);
+            break;
+        case 'gore-lijevo':
+            ShowResult_UpLeft($Reverse);
+            break;    
+        default:
+            echo "Set directoin";
+            break;
+    }
+}
+
 
 function SetNullArrowsArray($Array){
         //U slučaju da ne može doći do loop-a bit će eror kad budemo prikazivali
@@ -147,7 +175,7 @@ function SetNullArrowsArray($Array){
         return $Array;
     }
    
-function ShowResult($Reverse){    
+function ShowResult_DownLeft($Reverse){    
         //Smjerovi
         global $result;
         global $result_arrows; 
@@ -156,24 +184,23 @@ function ShowResult($Reverse){
         if($Reverse){
             $Direction=array('up','down','left','right');
             $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
-            $Rotate_direction=array('td-right-down','td-left-up','td-left-down','td-right-up');
+            $Rotate_direction=array('td-left-down','td-right-up','td-right-down','td-left-up');
             $rows=$_POST['BrojStupaca'];
             $columns= $_POST['BrojRedaka'];
         }else{
             $Direction=array('left','right','up','down');
             $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
-            $Rotate_direction=array('td-right-up','td-left-down','td-right-down','td-left-up');
+            $Rotate_direction=array('td-left-up','td-right-down','td-left-down','td-right-up');
             $rows=$_POST['BrojRedaka'];
             $columns=$_POST['BrojStupaca'];
         }
 
         //Prođi kroz redove i prikaži 
         echo '<table>';    
-
-        for ($s=$rows; $s >= 1 ; $s--) { 
+        for ($s=$rows; $s >=1 ; $s--){
             echo "<tr>";
             //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
-            for ($j=$columns; $j >=1; $j--) { 
+            for ($j=1; $j <=$columns; $j++) { 
                 if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
                     echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
                 }else{
@@ -196,5 +223,159 @@ function ShowResult($Reverse){
         }
         echo "</tr>";
     }
+echo '</table>'; 
+}
+
+function ShowResult_DownRight($Reverse){    
+    //Smjerovi
+    global $result;
+    global $result_arrows; 
+    global $end_number; 
+
+    if($Reverse){
+        $Direction=array('up','down','left','right');
+        $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
+        $Rotate_direction=array('td-right-down','td-left-up','td-left-down','td-right-up');
+        $rows=$_POST['BrojStupaca'];
+        $columns= $_POST['BrojRedaka'];
+    }else{
+        $Direction=array('left','right','up','down');
+        $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
+        $Rotate_direction=array('td-right-up','td-left-down','td-right-down','td-left-up');
+        $rows=$_POST['BrojRedaka'];
+        $columns=$_POST['BrojStupaca'];
+    }
+
+    //Prođi kroz redove i prikaži 
+    echo '<table>';    
+    for ($s=$rows; $s >=1 ; $s--){
+        echo "<tr>";
+        //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
+        for ($j=$columns; $j >=1; $j--) { 
+            if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+                echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
+            }else{
+            for ($i=0; $i <=3 ; $i++) { 
+                if(in_array($result[$s][$j], $result_arrows[$Direction[$i]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<td class='$td_direction[$i]'>".$result[$s][$j]."</td>";   
+                }
+            }
+        }
+            //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
+            if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+            
+            for ($i=0; $i <= 3; $i++) { 
+                if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
+                    echo "<td class='$Rotate_direction[$i]'>".$result[$s][$j]."</td>";   
+                }
+            }
+        }
+        
+    }
+    echo "</tr>";
+}
+echo '</table>'; 
+}
+
+
+function ShowResult_UpRight($Reverse){    
+    //Smjerovi
+    global $result;
+    global $result_arrows; 
+    global $end_number; 
+
+    if($Reverse){
+        $Direction=array('up','down','left','right');
+        $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
+        $Rotate_direction=array('td-right-up','td-left-down','td-left-up','td-right-down');
+        $rows=$_POST['BrojStupaca'];
+        $columns= $_POST['BrojRedaka'];
+    }else{
+        $Direction=array('left','right','up','down');
+        $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
+        $Rotate_direction=array('td-right-down','td-left-up','td-right-up','td-left-down');
+        $rows=$_POST['BrojRedaka'];
+        $columns=$_POST['BrojStupaca'];
+    }
+
+    //Prođi kroz redove i prikaži 
+    echo '<table>';    
+    for ($s=1; $s <=$rows ; $s++){
+        echo "<tr>";
+        //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
+        for ($j=$columns; $j >=1; $j--) { 
+            if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+                echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
+            }else{
+            for ($i=0; $i <=3 ; $i++) { 
+                if(in_array($result[$s][$j], $result_arrows[$Direction[$i]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<td class='$td_direction[$i]'>".$result[$s][$j]."</td>";   
+                }
+            }
+        }
+            //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
+            if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+            
+            for ($i=0; $i <= 3; $i++) { 
+                if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
+                    echo "<td class='$Rotate_direction[$i]'>".$result[$s][$j]."</td>";   
+                }
+            }
+        }
+        
+    }
+    echo "</tr>";
+}
+echo '</table>'; 
+}
+
+
+function ShowResult_UpLeft($Reverse){    
+    //Smjerovi
+    global $result;
+    global $result_arrows; 
+    global $end_number; 
+
+    if($Reverse){
+        $Direction=array('up','down','left','right');
+        $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
+        $Rotate_direction=array('td-left-up','td-right-down','td-right-up','td-left-down');
+        $rows=$_POST['BrojStupaca'];
+        $columns= $_POST['BrojRedaka'];
+    }else{
+        $Direction=array('left','right','up','down');
+        $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
+        $Rotate_direction=array('td-left-down','td-right-up','td-left-up','td-right-down');
+        $rows=$_POST['BrojRedaka'];
+        $columns=$_POST['BrojStupaca'];
+    }
+
+    echo '<table>';    
+    for ($s=1; $s <=$rows ; $s++){
+        echo "<tr>";
+        //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
+        for ($j=1; $j <=$columns; $j++) { 
+            if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+                echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
+            }else{
+            for ($i=0; $i <=3 ; $i++) { 
+                if(in_array($result[$s][$j], $result_arrows[$Direction[$i]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                    echo "<td class='$td_direction[$i]'>".$result[$s][$j]."</td>";   
+                }
+            }
+        }
+            //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
+            if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+            
+            for ($i=0; $i <= 3; $i++) { 
+                if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
+                    echo "<td class='$Rotate_direction[$i]'>".$result[$s][$j]."</td>";   
+                }
+            }
+        }
+        
+    }
+    echo "</tr>";
+}
 echo '</table>'; 
 }
