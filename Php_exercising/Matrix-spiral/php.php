@@ -39,11 +39,7 @@ function createArray($column, $row,$Reverse){
                     if(isset($result[$current_row][$i])){                 
                         continue;
                     }else{
-                    if(isset($result_arrows['left'][$i])){
                         $result_arrows['left'][$current_number]=$current_number;
-                    }else{
-                        $result_arrows['left'][$i]=$current_number;
-                    }
                     $result[$current_row][$i] = $current_number++;
                     //Označi da je jedan red gotov i odredi poziciju za idući red
                     if($i == $column - $z){
@@ -64,11 +60,7 @@ function createArray($column, $row,$Reverse){
                          $result[$a][$current_column];
                         continue;
                     }else{
-                        if(isset($result_arrows['up'][$a])){
-                            $result_arrows['up'][$current_number]=$current_number;
-                        }else{
-                            $result_arrows['up'][$a]=$current_number;
-                        }
+                        $result_arrows['up'][$current_number]=$current_number;
                     $result[$a][$current_column]=$current_number++;
                     if($a == $row - $z){
                         $current_row=$a;
@@ -86,11 +78,7 @@ function createArray($column, $row,$Reverse){
                     if(isset($result[$current_row][$b])){
                         continue;
                     }else{
-                        if(isset($result_arrows['right'][$b])){
-                            $result_arrows['right'][$current_number]=$current_number;
-                        }else{
-                            $result_arrows['right'][$b]=$current_number;
-                        }
+                        $result_arrows['right'][$current_number]=$current_number;
                     $result[$current_row][$b] = $current_number++;
                     if($b == 1 + $z){
                         $current_column=$b;
@@ -104,15 +92,10 @@ function createArray($column, $row,$Reverse){
                         $result_arrows['rotate-arrays'][$number_of_rotate_arrays++]=$current_number-1;
                         $true=1;
                     }                    
-
                     if(isset($result[$c][$current_column])){
                         continue;
                     }else{
-                        if(isset($result_arrows['down'][$c])){
-                            $result_arrows['down'][$current_number]=$current_number;
-                        }else{
-                            $result_arrows['down'][$c]=$current_number;
-                        }
+                        $result_arrows['down'][$current_number]=$current_number;
                     $result[$c][$current_column]=$current_number++;
                     if($c == 2 +$z){
                         $current_row=$c;
@@ -156,11 +139,13 @@ function createArray($column, $row,$Reverse){
 
         if($Reverse){
             $Direction=array('up','down','left','right');
+            $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
             $Rotate_direction=array('td-right-down','td-left-up','td-left-down','td-right-up');
             $rows=$column;
             $columns=$row;
         }else{
             $Direction=array('left','right','up','down');
+            $td_direction=array('td-left-right','td-left-right','td-up-down','td-up-down');
             $Rotate_direction=array('td-right-up','td-left-down','td-right-down','td-left-up');
             $rows=$row;
             $columns=$column;
@@ -175,28 +160,23 @@ function createArray($column, $row,$Reverse){
             for ($j=$columns; $j >=1; $j--) { 
                 if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
                     echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[0]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays']) ){
-                    echo "<td class='td-left-right'>".$result[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[1]]) &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                    echo "<td class='td-left-right'>".$result[$s][$j]."</td>"; 
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[2]])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                    echo "<td class='td-up-down'>".$result[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[3]])  &&!in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
-                    echo "<td class='td-up-down'>".$result[$s][$j]."</td>";   
+                }else{
+                for ($i=0; $i <=3 ; $i++) { 
+                    if(in_array($result[$s][$j], $result_arrows[$Direction[$i]]) && !in_array($result[$s][$j], $result_arrows['rotate-arrays'])){
+                        echo "<td class='$td_direction[$i]'>".$result[$s][$j]."</td>";   
+                    }
                 }
+            }
+                
 
                 //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
                 if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
-
-                if(in_array($result[$s][$j], $result_arrows[$Direction[0]])){
-                    echo "<td class='$Rotate_direction[0]'>".$result[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[1]])){
-                    echo "<td class='$Rotate_direction[1]'>".$result[$s][$j]."</td>";   
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[2]])){
-                    echo "<td class='$Rotate_direction[2]'>".$result[$s][$j]."</td>"; 
-                }elseif(in_array($result[$s][$j], $result_arrows[$Direction[3]])){
-                    echo "<td class='$Rotate_direction[3]'>".$result[$s][$j]."</td>";   
-                }
+                
+                    for ($i=0; $i <= 3; $i++) { 
+                        if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
+                            echo "<td class='$Rotate_direction[$i]'>".$result[$s][$j]."</td>";   
+                        }
+                    }
             }
             
         }
