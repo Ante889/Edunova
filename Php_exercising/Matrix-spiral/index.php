@@ -29,8 +29,8 @@
             <option value="gore-lijevo">gore-lijevo</option>
           </select>
           <br>
-          <label for="KreniOdSredine">Kreni od sredine(trenutno ne radi)</label>
-          <input type="checkbox" name="Kreniodsredine" id="Kreniodsredine">
+          <label for="Kreniodsredine">Kreni od sredine</label>
+          <input type="checkbox" name="Kreniodsredine" id="Kreniodsredine" <?php ShowInInputChecked('Kreniodsredine')?>>
           <br>
           <label for="Obrnuto">Obrnuto</label>
           <input type="checkbox" name="Obrnuto" id="Obrnuto" <?php ShowInInputChecked('Obrnuto')?>>
