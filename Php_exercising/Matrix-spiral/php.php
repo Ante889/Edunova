@@ -2,17 +2,16 @@
 
 if(isset($_POST['submit'])){
 
-    $Column_num=$_POST['BrojStupaca'];
-    $Row_num=$_POST['BrojRedaka'];
+    $Column_num= (int) $_POST['BrojStupaca'];
+    $Row_num=(int)$_POST['BrojRedaka'];
     isset($_POST['Obrnuto'])?$Reverse=$_POST['Obrnuto']: $Reverse='';
     isset($_POST['StranaKretanja'])? $MovementSide=$_POST['StranaKretanja']: $MovementSide='';
-    
+
     //Pokreni ako su upisani brojevi 
     if($Column_num > 0 && $Row_num > 0){
-
       $result = array(); //niz za matrix
       $result_arrows=(array)null; // niz za smjer
-      $end_number= $_POST['BrojRedaka']*$_POST['BrojStupaca']; //najveći broj u nizu
+      $end_number= $Row_num*$Column_num; //najveći broj u nizu
       CreateArray($Column_num,$Row_num,$Reverse);
       if($Reverse){
           $result=Reverse($result, $_POST['BrojStupaca']);
@@ -150,7 +149,7 @@ function MovementSide($Side,$Reverse){
             ShowResult_UpLeft($Reverse);
             break;    
         default:
-            echo "Set directoin";
+            echo "Postavi smjer";
             break;
     }
 }
