@@ -37,7 +37,9 @@ PrikaziProsteBrojeve(1,100);
 
 //////////FUNKCIJE//////////////  https://www.exakat.io/en/top-100-php-functions/
 
-$Array= array(1,2,1,23,684,9498,1961,898,8948896,[1,2,3],'test',1.10);
+$Array= array(3,2,1,23,684,9498,1961,898,8948896,[1,2,3],'test',1.10);
+class ClassName{}
+
 
 // 1. COUNT
 echo '<hr>';
@@ -191,3 +193,72 @@ $Funkcija = function($value){
 };
 
 print_r(array_map($Funkcija,[1,2,3,4,5]));
+
+//24 get_class
+echo '<hr>';
+$Class= new ClassName;
+echo get_class($Class);
+
+//25 class_exists
+echo '<hr>';
+if(class_exists('ClassName')){
+    $Class= new ClassName;
+}
+//26 is_object
+echo '<hr>';
+if(is_object($Class)){
+    echo 'Object';
+}
+//27 time
+echo '<hr>';
+echo time();
+
+//28 json_encode
+echo '<hr>';
+//json
+
+//29 date 
+echo '<hr>';
+
+echo date('y-m-d');
+
+//30 is_null
+echo '<hr>';
+$NullVariable= null;
+if(is_null($NullVariable)){
+    echo 'true';
+}
+
+
+//31 is_numeric
+echo '<hr>';
+
+foreach($Array as $key){
+    if(is_numeric($key)){
+        echo "Numeric";
+    }else{
+        echo 'not numeric';
+    }
+}
+
+
+//32 array_shift 
+echo '<hr>';
+array_shift($Array);
+print_r($Array);
+//treba izbaciti 3 iz niza 
+
+
+//33 defined
+echo '<hr>';
+echo '<hr>';
+
+$variabla="String";
+define($variabla,'IME');
+
+echo defined($variabla);
+
+
+//34 is_dir
+echo '<hr>';
+
