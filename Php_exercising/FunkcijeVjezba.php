@@ -53,7 +53,6 @@ echo '<br>';
 echo is_array($String)? 'yes':'no';
 
 
-
 // 3. substr
 echo '<hr>';
 $Test= "OvoJeTest";
@@ -75,3 +74,120 @@ $a='Lorem Ipsum is simply dummy text of the printing and typesetting industry. L
 print_r(explode(' ',$a));
 
 print_r(explode(' ',$a,4));
+
+
+//6. str_replace
+echo '<hr>';
+
+$Sentence= "Lorem Ipsum is simply dummy";
+echo str_replace("Lorem","Lorem123", $Sentence);
+
+//7. implode
+echo '<hr>';
+echo implode(" ",$Array);
+
+
+//8 strlen
+
+echo '<hr>';
+$Varijabla="btaehehet";
+echo strlen($Varijabla);
+
+
+//9 array_merge
+
+$SecondArray= array('a',0,'aa');
+$result= array_merge($Array,$SecondArray);
+print_r($result);
+
+
+//10 strpos
+echo '<hr>';
+$string= "Pozicija Slova a";
+
+echo strpos($string,'a');
+
+
+//11 preg_match
+echo '<hr>';
+$Sentence= 'Some Sentence.';
+echo preg_match('/Some/',$Sentence);
+
+
+//12 sprintf
+
+//////////
+
+//13 trim
+echo '<hr>';
+$String= '  grahe  ';
+echo strlen($String);
+$String = trim($String);
+echo '<br>';
+echo strlen($String);
+
+
+//14 strtolower
+echo '<hr>';
+$Varijabla = "SOMETHING";
+echo strtolower($Varijabla);
+
+
+//15 file_exists
+echo '<hr>';
+$filename = 'FunkcijeVjezba.php';
+if(file_exists($filename)){
+    echo "Postoji";
+}else{
+    echo "Ne postoji";
+}
+
+
+//16 is_string
+echo '<hr>';
+$Varijabla= 1;
+if(is_string($Varijabla)){
+    echo "true";
+}else{
+    echo "false";
+}
+
+
+//17 preg_replace
+echo '<hr>';
+$Sentence = "welcome to the jungle";
+$Replace = "club";
+echo preg_replace('/jungle/',$Replace,$Sentence);
+
+
+//18 file_get_contents
+echo '<hr>';
+$Path='Path od nekog recimo txt';
+echo file_get_contents($Path);
+
+
+//19 array_key_exists
+echo '<hr>';
+echo array_key_exists(1,$Array);
+
+//20 array_keys
+echo '<hr>';
+print_r(array_keys($Array,'test'));
+
+//21 dirname
+echo '<hr>';
+echo dirname('C:\Users\Ante\Documents\GitHub\Edunova\Php_exercising');
+
+
+//22 function_exists
+echo '<hr>';
+//Postoji li funkcija...
+
+//23 array_map
+echo '<hr>';
+
+$Funkcija = function($value){
+    return $value * 10;
+};
+
+print_r(array_map($Funkcija,[1,2,3,4,5]));
