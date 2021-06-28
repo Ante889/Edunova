@@ -1,39 +1,37 @@
 <?php
 //Prosti brojevi
 
+$Broj=11;
 
-function ProstiBrojevi($broj):bool
+function ProstiBroj(int $num1) :bool
 {
 
-    for ($i=2; $i < $broj; $i++) { 
-        if($broj % $i == 0){
+    for ($i=2; $i < $num1; $i++) { 
+        if($num1 % $i == 0){
             return false;
         }
     }
-    return TRUE;
+    return true;
 }
-
-if(ProstiBrojevi(11)){
-    echo 'Broj je prost';
+if(ProstiBroj($Broj)){
+    echo "Prime number";
+    
 }else{
-    echo 'Broj nije prost';
+    echo "not prime";
 }
 
-
-function PrikaziProsteBrojeve($broj1,$broj2)
+function ShowAllPrimaryNumbers(int $num1,int $num2)
 {
-
-    for ($i=$broj1; $i <= $broj2; $i++) { 
-        if(ProstiBrojevi($i)){
+    for ($i=$num1; $i < $num2; $i++) { 
+        if(ProstiBroj($i)){
             echo $i;
-            echo '<br>';
-
+            echo '<hr>';
         }
     }
 }
 
-PrikaziProsteBrojeve(1,100);
- echo '<hr>';
+ShowAllPrimaryNumbers(3,100);
+
 
 //////////FUNKCIJE//////////////  https://www.exakat.io/en/top-100-php-functions/
 
@@ -261,4 +259,38 @@ echo defined($variabla);
 
 //34 is_dir
 echo '<hr>';
+$filename = 'C:\Users\Ante\Documents\GitHub\Edunova\Php_exercising';
+if(is_dir($filename)){
+    echo true;
+};
+
+//35 json_decode
+echo '<hr>';
+//JSON
+
+//36 header
+echo '<hr>';
+//header('WWW-Authenticate: Negotiate');
+//header('WWW-Authenticate: NTLM', false);
+
+//37 strtoupper
+echo '<hr>';
+//String velika slova
+
+//38 array_values
+echo '<hr>';
+//Prikaži vrijednosti asociativnog array-a 
+
+//39 md5
+echo '<hr>';
+//Provjerava string sa hash code-om
+
+//40 method_exists
+echo '<hr>';
+//postoji li metoda u klasi
+class ClassNamee {
+    function SomeFunction(){}
+}
+$New = new ClassNamee;
+echo method_exists($New,'SomeFunction');
 
