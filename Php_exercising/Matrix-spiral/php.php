@@ -4,6 +4,7 @@ if(isset($_POST['submit'])){
 
     $Column_num= (int) $_POST['BrojStupaca'];
     $Row_num=(int)$_POST['BrojRedaka'];
+    $Startni_broj=$_POST['StartBroj'];
     isset($_POST['Obrnuto'])?$Reverse=$_POST['Obrnuto']: $Reverse='';
     isset($_POST['StranaKretanja'])? $MovementSide=$_POST['StranaKretanja']: $MovementSide='';
     isset($_POST['Kreniodsredine'])? $StartFromMiddle=$_POST['Kreniodsredine']:$StartFromMiddle='';
@@ -21,7 +22,7 @@ if(isset($_POST['submit'])){
       MovementSide($MovementSide,$Reverse);
 
     }else{
-      echo "error";
+      echo "Nije postavljen broj";
     }
   }
 
@@ -31,9 +32,10 @@ function CreateArray($column, $row,$Reverse,$StartFromMiddle){
     global $result;
     global $result_arrows; 
     global $end_number;  
+    global $Startni_broj;
     $current_row= 1; // Trenutni red
     $current_column=1; // Trenutna kolona 
-    $current_number= $StartFromMiddle == 'on' ? $end_number:1; // Trenutni broj koji ide u niz
+    $current_number= $StartFromMiddle == 'on' ? $end_number+$Startni_broj-1:$Startni_broj; // Trenutni broj koji ide u niz
     $number_of_rotate_arrays=0; //Key za 'rotate-arrays' niz
     $true=true; // if u for-u će se dogoditi samo jednom
     
@@ -123,7 +125,7 @@ function Reverse($array, $column)
     $a=0;
     foreach($array as $key){
         $a++;
-    for ($i=1; $i <=$column ; $i++) { 
+    for ($i=1; $i <=$column; $i++) { 
         $result_column[$i][$a]=$key[$i];
         }
     }   
@@ -138,7 +140,6 @@ function MovementSide($Side,$Reverse){
     switch ($Side) {
         case 'gore-desno':
             ShowResult_UpRight($Reverse);
-           
             break;
         case 'dolje-desno':
             ShowResult_DownRight($Reverse);
@@ -155,23 +156,13 @@ function MovementSide($Side,$Reverse){
     }
 }
 
-
 function SetNullArrowsArray($Array){
         //U slučaju da ne može doći do loop-a bit će eror kad budemo prikazivali
-        switch ($Array) {
-            case empty($Array['down']):
-                $Array['down'][0]=null;
-                break;
-            case empty($Array['up']):
-                $Array['up'][0]=null;
-                break;    
-            case empty($Array['left']):
-                $Array['left'][0]=null;
-                break;
-            case empty($Array['right']):
-                $Array['right'][0]=null;
-                break;              
-        }
+        $Array['down'][0]=null;
+        $Array['right'][0]=null;
+        $Array['up'][0]=null;
+        $Array['left'][0]=null;
+
         return $Array;
     }
    
@@ -179,7 +170,8 @@ function ShowResult_DownLeft($Reverse){
         //Smjerovi
         global $result;
         global $result_arrows; 
-        global $end_number; 
+        global $end_number;
+        global $Startni_broj; 
 
         if($Reverse){
             $Direction=array('up','down','left','right');
@@ -201,7 +193,7 @@ function ShowResult_DownLeft($Reverse){
             echo "<tr>";
             //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
             for ($j=1; $j <=$columns; $j++) { 
-                if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+                if($result[$s][$j] == $end_number+$Startni_broj-1 || $result[$s][$j] == $Startni_broj){
                     echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
                 }else{
                 for ($i=0; $i <=3 ; $i++) { 
@@ -211,10 +203,10 @@ function ShowResult_DownLeft($Reverse){
                 }
             }
                 //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
-                if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number && $result[$s][$j] !=1){
+                if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number+$Startni_broj-1 && $result[$s][$j] !=$Startni_broj){
                 
                 for ($i=0; $i <= 3; $i++) { 
-                    if($result[$s][$j] !== 1 && in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
+                    if($result[$s][$j] !== $Startni_broj && in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
                         echo "<td class='$Rotate_direction[$i]'>".$result[$s][$j]."</td>";   
                     }
                 }
@@ -231,6 +223,7 @@ function ShowResult_DownRight($Reverse){
     global $result;
     global $result_arrows; 
     global $end_number; 
+    global $Startni_broj; 
 
     if($Reverse){
         $Direction=array('up','down','left','right');
@@ -252,7 +245,7 @@ function ShowResult_DownRight($Reverse){
         echo "<tr>";
         //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
         for ($j=$columns; $j >=1; $j--) { 
-            if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+            if($result[$s][$j] == $end_number+$Startni_broj-1 || $result[$s][$j] == $Startni_broj){
                 echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
             }else{
             for ($i=0; $i <=3 ; $i++) { 
@@ -262,7 +255,7 @@ function ShowResult_DownRight($Reverse){
             }
         }
             //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
-            if($result[$s][$j] !== 1 && in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+            if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number+$Startni_broj-1 && $result[$s][$j] !=$Startni_broj){
             
             for ($i=0; $i <= 3; $i++) { 
                 if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
@@ -283,6 +276,7 @@ function ShowResult_UpRight($Reverse){
     global $result;
     global $result_arrows; 
     global $end_number; 
+    global $Startni_broj; 
 
     if($Reverse){
         $Direction=array('up','down','left','right');
@@ -304,7 +298,7 @@ function ShowResult_UpRight($Reverse){
         echo "<tr>";
         //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
         for ($j=$columns; $j >=1; $j--) { 
-            if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+            if($result[$s][$j] == $end_number+$Startni_broj-1 || $result[$s][$j] == $Startni_broj){
                 echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
             }else{
             for ($i=0; $i <=3 ; $i++) { 
@@ -314,7 +308,7 @@ function ShowResult_UpRight($Reverse){
             }
         }
             //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
-            if($result[$s][$j] !== 1 && in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+            if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number+$Startni_broj-1 && $result[$s][$j] !=$Startni_broj){
             
             for ($i=0; $i <= 3; $i++) { 
                 if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
@@ -335,6 +329,7 @@ function ShowResult_UpLeft($Reverse){
     global $result;
     global $result_arrows; 
     global $end_number; 
+    global $Startni_broj; 
 
     if($Reverse){
         $Direction=array('up','down','left','right');
@@ -355,7 +350,7 @@ function ShowResult_UpLeft($Reverse){
         echo "<tr>";
         //Prođi kroz svaki broj u tom redu i provjeri kako treba biti okrenut
         for ($j=1; $j <=$columns; $j++) { 
-            if($result[$s][$j] === $end_number || $result[$s][$j] === 1){
+            if($result[$s][$j] == $end_number+$Startni_broj-1 || $result[$s][$j] == $Startni_broj){
                 echo "<td class='td-no-back'>".$result[$s][$j]."</td>";                
             }else{
             for ($i=0; $i <=3 ; $i++) { 
@@ -365,7 +360,7 @@ function ShowResult_UpLeft($Reverse){
             }
         }
             //Prođi kroz brojeve koji trebaju biti drugačije okrenuti u redu i okreni ih
-            if($result[$s][$j] !== 1 && in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number){
+            if(in_array($result[$s][$j], $result_arrows['rotate-arrays']) && $result[$s][$j] !=$end_number+$Startni_broj-1 && $result[$s][$j] !=$Startni_broj){
             
             for ($i=0; $i <= 3; $i++) { 
                 if(in_array($result[$s][$j], $result_arrows[$Direction[$i]])){
