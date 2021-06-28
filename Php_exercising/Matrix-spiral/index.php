@@ -14,8 +14,11 @@
 <div class="flex-container">
   <div class="flex-item-left">
         <form action="" method="post">
+          <label for="StartBroj">Startni broj</label>
+          <input class="custom-form" type="number" name="StartBroj" id="StartBroj" value="<?php ShowInInput('StartBroj')?>">
+          <br>
           <label for="BrojRedaka">Broj redaka</label>
-          <input class="custom-form" type="number" name="BrojRedaka" id="BrojRedaka" value="<?php ShowInInput('BrojRedaka')?>" placeholder""">
+          <input class="custom-form" type="number" name="BrojRedaka" id="BrojRedaka" value="<?php ShowInInput('BrojRedaka')?>">
           <br>
           <label for="BrojStupaca">Broj stupaca</label>
           <input class="custom-form" type="number" name="BrojStupaca" id="BrojStupaca" value="<?php ShowInInput('BrojStupaca')?>">
