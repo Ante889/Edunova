@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     isset($_POST['Kreniodsredine'])? $StartFromMiddle=$_POST['Kreniodsredine']:$StartFromMiddle='';
 
     //Pokreni ako su upisani brojevi 
-    if($Column_num > 0 && $Row_num > 0){
+    if($Column_num > 0 && $Row_num > 0 && $Startni_broj >= 0){
       $result = array(); //niz za matrix
       $result_arrows=(array)null; // niz za smjer
       $end_number= $Row_num*$Column_num; //najveći broj u nizu
@@ -162,7 +162,6 @@ function SetNullArrowsArray($Array){
         $Array['right'][0]=null;
         $Array['up'][0]=null;
         $Array['left'][0]=null;
-
         return $Array;
     }
    
