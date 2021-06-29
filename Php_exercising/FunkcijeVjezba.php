@@ -294,3 +294,69 @@ class ClassNamee {
 $New = new ClassNamee;
 echo method_exists($New,'SomeFunction');
 
+//41 file_put_contents
+
+$File = 'NekiFile.txt';
+$OpenFile = file_get_contents($File);
+$OpenFile .= "some content";
+file_put_contents($File,$OpenFile);
+
+//42 rtrim
+echo '<hr>';
+$hello  = "Hello World";
+$trimmed = rtrim($hello, "Hdle");
+var_dump($trimmed);
+
+//43 array_pop
+echo '<hr>';
+array_pop($Array);
+print_r($Array);
+//Treba izbaciti 1.10 sa kraja
+
+//44 unlink
+echo '<hr>';
+//Sa 41// sam krirao file "Nekifile.txt" i sa unlink ga brišem.  
+unlink('NekiFile.txt');
+
+
+//45 basename
+echo '<hr>';
+echo basename('C:\Users\Ante\Documents\GitHub\Edunova\Php_exercising');
+//izbaci Php_exercising;
+
+//46 realpath
+echo '<hr>';
+echo realpath('/windows/system32');
+echo '<br>';
+echo realpath('C:\Program Files\\');
+
+//47 call_user_func
+echo '<hr>';
+
+function Funkcija($a){
+    return ++$a;
+}
+echo call_user_func('Funkcija',1);
+
+
+//48 call_user_func_array
+echo '<hr>';
+// isto kao i sa call_user_func samo sa array-om
+
+//49 fopen
+echo '<hr>';
+
+//$something = fopen("Neki path", 'Mod u kojem radi');
+
+//50 microtime
+echo '<hr>';
+
+$time_start = microtime(true);
+
+// Sleep for a while
+usleep(100);
+
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+
+echo "Did nothing in $time seconds\n";
