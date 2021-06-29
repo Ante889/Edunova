@@ -1,44 +1,55 @@
-<?php include 'function.php'?>
-
+<?php include 'function.php';
+include 'Lang/Hrv.php';?>
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix spiral</title>
+    <title><?php echo NASLOV;?></title>
     <link rel="stylesheet" href="assets/css/custom.css">
   </head>
 <body>
 
 <div class="flex-container">
   <div class="flex-item-left">
-        <form action="" method="post">
-          <label for="StartBroj">Startni broj</label>
+        <form action="" method="GET" id="language_form">
+            <label for="Lang"><?php echo ODABERI_JEZIK?></label>
+            <select name="Lang" onchange="changeLanguage()">
+            <option value=""><?php echo ODABRANO;?>: <?php ShowInInputGet('Lang')?></option>
+            <option value="Eng">Eng</option>
+            <option value="Hrv">Hrv</option>
+            </select>
+        </form>
+
+        <form action="" method="POST">        
+          <hr>
+          <br>
+          <label for="StartBroj"><?php echo STARTNI_BROJ;?></label>
           <input class="custom-form" type="number" name="StartBroj" id="StartBroj" value="<?php ShowInInput('StartBroj')?>">
           <br>
-          <label for="BrojRedaka">Broj redaka</label>
+          <label for="BrojRedaka"><?php echo BROJ_REDAKA;?></label>
           <input class="custom-form" type="number" name="BrojRedaka" id="BrojRedaka" value="<?php ShowInInput('BrojRedaka')?>">
           <br>
-          <label for="BrojStupaca">Broj stupaca</label>
+          <label for="BrojStupaca"><?php echo BROJ_STUPACA;?></label>
           <input class="custom-form" type="number" name="BrojStupaca" id="BrojStupaca" value="<?php ShowInInput('BrojStupaca')?>">
           <br>
-          <label for="StranaKretanja">Strana kretanja</label>
+          <label for="StranaKretanja"><?php echo STRANA_KRETANJA;?></label>
           <select name="StranaKretanja" id="StranaKretanja">
-          <option value="<?php ShowInInput('StranaKretanja')?>"><b>Odabrano: <?php ShowInInput('StranaKretanja')?></b></option>
-            <option value="gore-desno">gore-desno</option>
-            <option value="dolje-desno">dolje-desno</option>
-            <option value="dolje-lijevo">dolje-lijevo</option>
-            <option value="gore-lijevo">gore-lijevo</option>
+          <option value="<?php ShowInInput('StranaKretanja')?>"><b><?php echo ODABRANO;?>: <?php ShowInInput('StranaKretanja')?></b></option>
+            <option value="gore-desno"><?php echo GORE_DESNO;?></option>
+            <option value="dolje-desno"><?php echo DOLJE_DESNO;?></option>
+            <option value="dolje-lijevo"><?php echo DOLJE_LIJEVO;?></option>
+            <option value="gore-lijevo"><?php echo GORE_LIJEVO;?></option>
           </select>
           <br>
-          <label for="Kreniodsredine">Kreni od sredine</label>
+          <label for="Kreniodsredine"><?php echo KRENI_OD_SREDINE;?></label>
           <input type="checkbox" name="Kreniodsredine" id="Kreniodsredine" <?php ShowInInputChecked('Kreniodsredine')?>>
           <br>
-          <label for="Obrnuto">Obrnuto</label>
+          <label for="Obrnuto"><?php echo OBRNUTO;?></label>
           <input type="checkbox" name="Obrnuto" id="Obrnuto" <?php ShowInInputChecked('Obrnuto')?>>
           <br>
-          <input type="submit" name="submit" value="KREIRAJ TABLICU">
+          <input type="submit" name="submit" value="<?php echo KREIRAJ_TABLICU;?>">
         </form>
 
     </div>
@@ -49,9 +60,13 @@
       ?>
 </div>
 </div>
-
-
-<script src="assets/js/vendor.js"></script>
-<script src="assets/js/foundation.js"></script>
 </body>
 </html>
+
+<script>
+
+  function changeLanguage(){
+    document.getElementById('language_form').submit();
+  }
+
+</script>
