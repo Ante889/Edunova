@@ -89,7 +89,6 @@ if(isset($_POST['Login-Submit'])){
     Header('Location: index.php');
   }
 }
-
 ?>
 
 
@@ -97,4 +96,8 @@ if(isset($_POST['Login-Submit'])){
 <script src="assets/js/foundation.js"></script>
 <script src="assets/js/custom.js"></script>
 </body>
+
+
 </html>
+
+

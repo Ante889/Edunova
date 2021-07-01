@@ -14,7 +14,7 @@ class register
         if($Confirm_password != $Password){
             $Errors['Password'] = "Passwords doesn't match";
         }elseif(strlen($Password) < 6){
-            $Errors['Password'] = "Min 6 characters";
+            $Errors['Password'] = "Password must be minimum 6 characters";
         }elseif(!$this -> user_exists($Username, $Email)){
             $Errors['Email'] = "Email or username exsists";
         }elseif(empty($Username) || empty($Password) || empty($Email) || empty($Confirm_password)){
