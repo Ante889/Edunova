@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 <?php
-
+IsLogin('content.php');
 if(isset($_POST['submit-register'])){
   $Msg=RegistrationErrors($_POST['Register-Email'],$_POST['Register-Password'],$_POST['Register-Confirm-Password']);
 }     
