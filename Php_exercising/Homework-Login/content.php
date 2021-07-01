@@ -1,7 +1,7 @@
 <?php 
 
 include "header.php";
-
+IsLogout('index.php');
 ?>
 <!-- Start Top Bar -->
 <div class="top-bar">
@@ -41,7 +41,7 @@ include "header.php";
     </div>
 
     <div class="row column text-center">
-      <h2>Welcome Ante</h2>
+      <h2><?php echo "Welcome ". $_SESSION['email'];?></h2>
       <hr>
     </div>
 
