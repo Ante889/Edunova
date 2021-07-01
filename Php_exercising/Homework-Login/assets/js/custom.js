@@ -1,1 +1,3 @@
-<script>$(document).foundation();</script>
+<script>
+$(document).foundation();
+</script>
