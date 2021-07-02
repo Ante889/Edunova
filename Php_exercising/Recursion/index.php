@@ -2,21 +2,16 @@
 
 //Proučiti pojam rekurzija. Riješiti zadatak zbrajanja prvih 100 brojeva rekurzijom.
 
-$Rezultat=0;
-
-function Zbrajanbrojeva(int $OdBroja, int $DoBroja)
+function Rekurzija(int $OdBroja, int $DoBroja, int $rezultat=0)
 {
-    global $Rezultat;
     if($OdBroja <= $DoBroja){
-        $Rezultat= $Rezultat+$OdBroja;
-        $OdBroja++;
-        Zbrajanbrojeva($OdBroja,$DoBroja);
+        Rekurzija($OdBroja+1, $DoBroja, $retultat=$rezultat+$OdBroja); 
     }else{
-        echo $Rezultat;
+        echo $rezultat;
     }
-    
 }
 
-Zbrajanbrojeva(1,100);
+Rekurzija(0,100);
 
-?>
+echo '<hr>';
+
