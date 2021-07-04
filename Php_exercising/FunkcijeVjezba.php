@@ -1,4 +1,77 @@
 <?php
+
+/////Zadatak 1. Write a PHP program to compute the sum of the two
+//given integer values. If the two values are the same, then returns triple their sum.
+
+function Zadatak1(int $num1,int $num2)
+{
+
+    return $num1===$num2 ? ($num1+$num1)*3: $num1+$num2;
+
+}
+echo Zadatak1(1,2);
+echo '<br>';
+echo Zadatak1(3,2);
+echo '<br>';
+echo Zadatak1(2,2);
+
+echo '<br>';
+echo '<br>';
+
+// Zadatak 2.
+//2. Write a PHP program to get the absolute difference between n and 51.
+//If n is greater than 51 return triple the absolute difference
+
+function Zadatak2(int $n)
+{
+
+    return $n <= 51 ? 51 - $n : ($n - 51)*3; 
+
+}
+
+echo Zadatak2(53);
+echo '<br>';
+echo Zadatak2(30);
+echo '<br>';
+echo Zadatak2(51);
+
+
+//Zadatak 3 - 3. Write a PHP program to check two given integers, 
+//and return true if one of them is 30 or if their sum is 30.
+
+function Zadatak3(int $num1, int $num2)
+{
+
+    if($num1 == 30 || $num2 == 30){
+        return true;
+    }else if($num1 + $num2 == 30){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+echo '<hr>';
+echo Zadatak3(30, 0);
+echo '<br>';
+echo Zadatak3(25, 5);
+echo '<br>';
+echo Zadatak3(20, 30);
+echo '<br>';
+echo Zadatak3(30, 25);
+
+
+
+
+
+
+
+
+
+
+echo '<br>';echo '<br>';echo '<br>';echo '<br>';
+echo '<hr>';echo '<hr>';echo '<hr>';echo '<hr>';echo '<hr>';echo '<hr>';
+
 //Prosti brojevi
 
 $Broj=11;
