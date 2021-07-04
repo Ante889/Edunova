@@ -56,9 +56,8 @@ echo is_array($String)? 'yes':'no';
 // 3. substr
 echo '<hr>';
 $Test= "OvoJeTest";
-echo substr($Test, 0,3);
-echo substr($Test,3,2);
-echo substr($Test, 5);
+echo substr($Test, 3,2);
+
 
 
 // 4. in_array 
@@ -249,7 +248,7 @@ print_r($Array);
 
 //33 defined
 echo '<hr>';
-echo '<hr>';
+
 
 $variabla="String";
 define($variabla,'IME');
@@ -353,10 +352,85 @@ echo '<hr>';
 
 $time_start = microtime(true);
 
-// Sleep for a while
+//Sleep for a while
 usleep(100);
 
 $time_end = microtime(true);
 $time = $time_end - $time_start;
-
 echo "Did nothing in $time seconds\n";
+
+//51 fclose
+
+$handle = fopen('somefile.txt', 'r');
+
+//52 is_int 
+
+//True ili false je li int 
+
+//53 is_file
+
+// Ako je file
+
+//54 Array_slice 
+
+echo '<hr>';
+$SomeArray= array(1 => 1 , 2 => 2,3 => 3,4 => 4);
+print_r($SomeArray);
+print_r (Array_slice($SomeArray,1,3));
+
+//55 preg_match_all
+echo '<hr>';
+
+//
+
+//56 ucfirst
+
+echo '<hr>';
+$Sentence = "some words";
+ucfirst($Sentence);
+//Prvoslove je veliko
+
+
+//57 intval 
+
+//intval — Get the integer value of a variable
+
+//58 str_repeat
+
+echo '<hr>';
+$Repeat = 'Ante ';
+echo str_repeat($Repeat, 10);
+//Ispiše ante 10 puta;
+
+//59 serialize
+
+//Generates a storable representation of a value.
+
+//This is useful for storing or passing PHP values around without losing their type and structure.
+
+//To make the serialized string into a PHP value again, use unserialize().
+
+// ovo se koristi uglavnom prije slanja podataka u databazu
+
+//60 array_filter
+
+echo '<hr>';
+function nešto($var)
+{
+    // returns whether the input integer is odd
+    return $var & 1;
+}
+
+function even($var)
+{
+    // returns whether the input integer is even
+    return !($var & 1);
+}
+
+$array1 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+$array2 = [6, 7, 8, 9, 10, 11, 12];
+
+echo "Odd :\n";
+print_r(array_filter($array1, "nešto"));
+echo "Even:\n";
+print_r(array_filter($array2, "even"));
