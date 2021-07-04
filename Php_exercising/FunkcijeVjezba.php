@@ -63,14 +63,54 @@ echo Zadatak3(30, 25);
 
 
 
+//Zadatak 4 10. Write a PHP program to check if a given positive number is a multiple of 3 or a multiple of 7.
+
+
+function Zadatak10(int $num1): bool 
+{
+    if($num1 >=0){
+        if($num1 % 3 == 0 || $num1 % 7 == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
+//Zadatak 24 - Write a PHP program to convert the last 3 characters of a given string in upper case. 
+//If the length of the string has less than 3 then uppercase all the characters.
+
+function Zadatak24 (string $s) : string
+{
+
+    if(strlen($s) <=3){
+        return strtoupper($s);
+    }else{
+        return substr($s,0,strlen($s)-3) . strtoupper(substr($s, -3));
+    }
+
+}
+echo '<hr>';
+echo Zadatak24('Python'). "\n";
+echo Zadatak24('Javascript'). "\n";
+echo Zadatak24('js'). "\n";
+echo Zadatak24('PHP'). "\n";
+
+echo '<hr>';
+echo Zadatak10(3);
+echo '<br>';
+echo Zadatak10(14);
+echo '<br>';
+echo Zadatak10(12);
+echo '<br>';
+echo Zadatak10(37);
 
 
 
 
-
-
-echo '<br>';echo '<br>';echo '<br>';echo '<br>';
-echo '<hr>';echo '<hr>';echo '<hr>';echo '<hr>';echo '<hr>';echo '<hr>';
+echo '<hr>';
 
 //Prosti brojevi
 
