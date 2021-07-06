@@ -4,6 +4,7 @@
 if(isset($_POST['submit'])){
 
     $Names = strtolower($_POST['FirstName'] . $_POST['SecondName']);
+    $Names = str_replace(' ','',$Names);
     $LettersNumber= strlen($Names);
 
 }
@@ -25,7 +26,8 @@ function Calculate($Value)
         for ($i=0; $i <= $sum ; $i++) { 
             if($i != $sum){
             $Values[$i]=substr($Value, $i,1) + substr($Value, -$i-1,1);
-            }else{
+            }
+            else{
                 $Values[$i]=substr($Value, $i,1);
             }
         }
