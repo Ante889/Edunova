@@ -25,7 +25,7 @@
     </div>
     <div class="flex-item-right">
       <?php 
-
+      include 'functions.php';
       ?>
 </div>
 </div>

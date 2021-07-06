@@ -20,6 +20,7 @@
   background-color: grey;
   padding: 10px;
   flex: 50%;
+  text-align: center;
 }
 input[type=text], select {
   width: 100%;
