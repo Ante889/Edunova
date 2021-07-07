@@ -12,12 +12,9 @@ if(isset($_POST['submit'])){
     }
     echo $Value=implode('',$Values);
     echo '<hr>';
-    Calculate($Value);
+    echo Calculate($Value);
 
 }
-
-
-
 
 function Calculate($Value)
 { 
@@ -37,11 +34,9 @@ function Calculate($Value)
             }
         }
         echo implode('',$Values).'<hr>';
-        Calculate(implode('',$Values));
-    }else{
-        echo '<h1>Result is '.$Value.'</h1>';
+        return Calculate(implode('',$Values));
     }
-
+        return '<h1>Result is '.$Value.'</h1>';
 }
 
 
