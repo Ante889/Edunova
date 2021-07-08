@@ -547,3 +547,29 @@ echo "Odd :\n";
 print_r(array_filter($array1, "nešto"));
 echo "Even:\n";
 print_r(array_filter($array2, "even"));
+
+
+
+
+
+echo '<hr>';
+$Test = new stdClass();
+$Test -> name = 'TestName';
+$Test -> number = 1;
+
+class ClassName1 
+{
+    public $TestClass;
+
+    function __construct($Test){
+        $this -> TestClass = $Test;
+    }
+
+    function ShowTest(){
+        echo $this -> TestClass -> name;
+    }
+}
+
+$Ob = new ClassName1($Test);
+
+$Ob -> ShowTest();
