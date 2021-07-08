@@ -1,0 +1,6 @@
+{
+    "require": {
+        "nesbot/carbon": "^2.50",
+        "swiftmailer/swiftmailer": "^6.2"
+    }
+}
