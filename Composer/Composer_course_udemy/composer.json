@@ -1,13 +1,9 @@
 {
     "require": {
-        "nesbot/carbon": "^2.50",
-        "swiftmailer/swiftmailer": "^6.2"
     },
     "autoload": {
-        "classmap": ["classes/","libarary/"],
-        "files": ["config/database.php"],
         "psr-4": {
-            "App\\":"src/"
+            "Devscreencast\\ResponseClass\\":"src/"
         }
     }
 }
