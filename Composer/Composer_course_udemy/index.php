@@ -2,7 +2,17 @@
 
 require_once __DIR__ ."/vendor/autoload.php";
 
-use Carbon\Carbon;
+new lib;
+echo '<br>';
+new Move;
+echo '<br>';
+connect();
+echo '<br>';
+new App\book();
+echo '<br>';
+new App\TextBook();
+
+/* use Carbon\Carbon;
 
 $credentials = require __DIR__."/config/config.php";
 
@@ -20,4 +30,6 @@ $message
 ->setTo(['ante.filipovic72@gmail.com'])
 ->setBody(body:'I am using swiftmailer in my project');
 
-$result = $Mailer->send($message);
+$result = $Mailer->send($message); */
+
+

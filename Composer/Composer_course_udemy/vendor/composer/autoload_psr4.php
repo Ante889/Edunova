@@ -17,4 +17,5 @@ return array(
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'App\\' => array($baseDir . '/src'),
 );
