@@ -3,7 +3,7 @@
     "description": "A simple class that returns a properly formatted json respones with HTTP status",
     "keywords": ["Json","Respone","API Respone Class", "PHP"],
     "license": "MIT",
-    "type": "library",
+    "type": "library", 
 
     "authors": [{
         "name": "Ante",
@@ -11,11 +11,21 @@
         "homepage": "https://something.com"
     }],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "swiftmailer/swiftmailer": "^6.2"
     },
     "autoload": {
+        "classmap": ["scripts/"],
         "psr-4": {
             "Devscreencast\\ResponseClass\\":"src/"
         }
+    },
+    "scripts": {
+        "pre-package-install":[
+            "ComposerEventListener::prePackageInstall"
+        ],
+        "post-package-install":[
+            "ComposerEventListener::postPackageInstall"
+        ]   
     }
 }
