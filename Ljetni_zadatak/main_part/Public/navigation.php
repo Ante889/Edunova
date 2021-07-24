@@ -7,10 +7,11 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text"><?php echo TITLE;?></li>
-      <li><a href="index.php">Products</a></li>
-      <li><a href="#0">Cart</a></li>
-      <li ><a href="#0">Contact us</a></li>
-      <li><a href="#0">Admin</a></li>
+      <li><a href="?product">Products</a></li>
+      <li><a href="?cart">Cart</a></li>
+      <li><a href="?login">Login</a></li>
+      <li><a href="?logout">Logout</a></li>
+      <li><a href="?admin">Admin</a></li>
     </ul>
   </div>
   <div class="top-bar-right">

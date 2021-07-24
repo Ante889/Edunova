@@ -9,7 +9,6 @@
         <div class="medium-8 columns about-section">
           <h4> About us</h4>
           <p>paragraph about how amazing and awesome i am paragraph about how amazing and awesome i am paragraph about how amazing and awesome i am</p>
-          <a href="">Read More</a>
         </div>
       </div>
     </div>
