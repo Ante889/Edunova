@@ -259,5 +259,7 @@
   transition: color 0.3s ease-in;
 }
 
-
-  
+.login{
+  max-width: 500px;
+  margin: auto;
+}
