@@ -37,12 +37,27 @@
 
 <!-- End orbit -->
 
+<hr><br>
+<h2 class="text-center">PRODUCTS</h2>
+<div class="grid-x">
 
-<!-- Products -->
+    <div class="cell small-3">
 
-        <div class="grid-x grid-margin-x small-up-1 medium-up-3">
+      <!-- Aside -->
+
+      <?php include "aside.php"?>
+
+      <!-- End aside -->
+
+    </div>
+
+    <div class="cell small-9">
+
+      <!-- Products -->
+    <br><br>
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-3">
           <!--Product-->
-          <div class="cell small-6">
+          <div class="cell small-3">
             <div class="card">
               <img src="Test.jpg">
               <div class="card-section">
@@ -58,6 +73,36 @@
 
 
 <!--End Products -->
+
+<!-- Pagination-->
+<nav aria-label="Pagination">
+  <br><br><br>
+  <ul class="pagination">
+    <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
+    <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+    <li><a href="#" aria-label="Page 2">2</a></li>
+    <li><a href="#" aria-label="Page 3">3</a></li>
+    <li><a href="#" aria-label="Page 4">4</a></li>
+    <li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+  </ul>
+</nav>
+<!-- End Pagination -->
+
+    </div>
+
+</div>
+
+<!-- Best buy-->
+
+<?php
+
+include "bestBuy.php";
+
+?>
+
+<!-- Best buy-->
+
+
 
 <?php include "footer.php";?>
 <?php include "js.php";?>
