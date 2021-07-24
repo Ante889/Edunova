@@ -5,18 +5,32 @@
         <h3>Create account</h3>
         <br>
         <div class="row columns text-center">
-            <input type="text" name="Register-Email" placeholder="Email">
+            <input type="text" name="Firstname" placeholder="Firstname">
         </div>
         <div class="row columns text-center">
-            <input type="Password" name="Register-Password" placeholder="Password">
+            <input type="text" name="Lastname" placeholder="Lastname">
         </div>
         <div class="row columns text-center">
-            <input type="Password" name="Register-Confirm-Password" placeholder="Confirm password">
+            <input type="text" name="Email" placeholder="Email">
+        </div>
+        <div class="row columns text-center">
+            <input type="Password" name="Password" placeholder="Password">
+        </div>
+        <div class="row columns text-center">
+            <input type="Password" name="Confirm-Password" placeholder="Confirm password">
         </div>
         <br>
-        <input type="submit" name="submit-register" class="primary button expanded search-button" value="Register">
+        <input type="submit" name="submit" class="primary button expanded search-button" value="Register">
 
         <a href="?login">Login</a>
     </form>
     </div>
 </div>
+
+<?php
+
+if(isset($_POST['submit'])){
+    include 'resources/userRegister.php';
+}
+
+?>
