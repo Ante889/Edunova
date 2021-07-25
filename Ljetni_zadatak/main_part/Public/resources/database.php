@@ -29,10 +29,7 @@ class database {
         $sql= "INSERT into $tableName ($rows) values ($questionMark)";
         $statement = $this -> connection -> prepare($sql);
         $statement->execute($values);
-        
-        if (!$statement) {
-            print_r($this ->connection->errorInfo());
-        }
+        $this->Confirm_sql($statement);
     }
     
     //U $values na zadnjem mjestu stavljam id za where 
@@ -46,10 +43,7 @@ class database {
         $sql= "UPDATE $tableName SET $rows WHERE id=?";
         $statement = $this -> connection -> prepare($sql);
         $statement->execute($values);
-        
-        if (!$statement) {
-            print_r($this ->connection->errorInfo());
-        }
+        $this->Confirm_sql($statement);
     }
 
     public function Delete($tableName,$values){
@@ -57,10 +51,7 @@ class database {
         $sql= "DELETE FROM $tableName WHERE id=?";
         $statement = $this -> connection -> prepare($sql);
         $statement->execute($values);
-        
-        if (!$statement) {
-            print_r($this ->connection->errorInfo());
-        }
+        $this->Confirm_sql($statement);
     }
 
     //ako želiš povuci sve iz baze ostavi where prazno 
@@ -82,26 +73,20 @@ class database {
         $statement = $this -> connection -> prepare($sql);
         $statement->execute($values);
         return $result = $statement->fetchall();
-        
-        if (!$statement) {
-            print_r($this ->connection->errorInfo());
-        }
     }else{
         $sql= "SELECT $rows FROM $tableName";
         $statement = $this -> connection -> prepare($sql);
         $statement->execute();
         return $result = $statement->fetchall();
-        
-        if (!$statement) {
-            print_r($this ->connection->errorInfo());
+    }
+        $this->Confirm_sql($statement);
+    }
+     
+    private function Confirm_sql($query){
+        if (!$query) {
+            die($this ->connection->errorInfo());
         }
-
     }
-    }
-
 }
-
 $Db = new Database;
-
-
 ?>

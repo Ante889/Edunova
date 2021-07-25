@@ -1,10 +1,10 @@
-
 <?php
+isLogin('index.php');
+
 
 if(isset($_POST['submit-login'])){
   include 'resources/userLogin.php';
   $Msg = $login->checkErrors();
-  print_r($Msg);
 }
 
 ?>
@@ -18,9 +18,15 @@ if(isset($_POST['submit-login'])){
     <div class="row columns text-center">
         <input type="text" name="email-login" placeholder="Email">
     </div>
+    <?php
+        if(isset($Msg['email'])){echo "<h4 style='color:red;'>".$Msg['email']."</h4>";}
+    ?>
     <div class="row columns text-center">
         <input type="Password" name="password-login" placeholder="Password">
     </div>
+    <?php
+        if(isset($Msg['password'])){echo "<h4 style='color:red;'>".$Msg['password']."</h4>";}
+    ?>
     <br>
     <input type="submit" name="submit-login" class="primary button expanded search-button" value="Login">
     <h4>You do not have an account? </h4><a href="?register"><h4>Create acount</h4></a>

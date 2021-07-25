@@ -9,9 +9,19 @@
       <li class="menu-text"><?php echo TITLE;?></li>
       <li><a href="?product">Products</a></li>
       <li><a href="?cart">Cart</a></li>
-      <li><a href="?login">Login</a></li>
-      <li><a href="?logout">Logout</a></li>
-      <li><a href="?admin">Admin</a></li>
+      
+      <?php
+      if(isset($_SESSION['id'])){
+        echo "<li><a href='?logout'>Logout</a></li>";
+      }else{
+        echo "<li><a href='?login'>Login</a></li>";
+      }
+      if(isset($_SESSION['role']) && $_SESSION['role']== 'admin'){
+        echo "<li><a href='?admin'>Admin</a></li>";
+      }
+      ?>
+      
+
     </ul>
   </div>
   <div class="top-bar-right">

@@ -1,3 +1,6 @@
+<?php
+isLogout('index.php?login');
+?>
 <!--Content-->
 
 <form action="">

@@ -87,8 +87,8 @@ class login {
      public function logoutUser(){
 
         session_destroy();
-
-     }
+        header('location: index.php?login');    
+    }
 }
 
 $login=new login();
