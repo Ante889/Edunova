@@ -17,6 +17,9 @@ if(isset($_GET["product"])){
   include "login.php";
 }elseif(isset($_GET["register"])){
   include "register.php";
+}elseif(isset($_GET["logout"])){
+  include "resources/userLogin.php";
+  $login->logoutUser();
 }else{
   include "product.php";
 }

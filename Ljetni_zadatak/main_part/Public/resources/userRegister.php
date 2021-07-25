@@ -75,13 +75,17 @@ class Register{
     public function CreateUser(){
         global $Db;
         $rowNames = ['name','lastname','role','email','password'];
-        $values = [$this->name,$this->lastname,'user',$this->email,$this->HashPass($this->password),];
+        $values = [$this->name,$this->lastname,'user',strtolower($this->email),$this->HashPass()];
         $Db-> Insert('users',$rowNames,$values);
     }
 
-    public function HashPass($password){
-
-        return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+    public function HashPass(){
+        
+        $options = [
+            'cost' => 12,
+        ];
+        return password_hash($this->password,PASSWORD_BCRYPT,$options);
+        
 
     }
 
