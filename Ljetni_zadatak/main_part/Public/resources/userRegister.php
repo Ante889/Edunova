@@ -13,7 +13,8 @@ class Register{
         'name' => '',
         'lastname'=>'',
         'email' => '',
-        'password' => ''
+        'password' => '',
+        'complete' => ''
     ];
 
     
@@ -22,9 +23,7 @@ class Register{
         $this->lastname = $_POST["Lastname"];
         $this->email = $_POST["Email"];
         $this->password = $_POST["Password"];
-        $this->confirm_password = $_POST["Confirm-Password"];
-        $this -> CheckErrors();
-        
+        $this->confirm_password = $_POST["Confirm-Password"];        
     }
 
     public function CheckErrors(){
@@ -38,41 +37,52 @@ class Register{
         //Name
         if(empty($this-> name)){
             $this->errors['name']= "Canno't be empty";
+            return $this->errors;
+            
         }
         //Lastname
         elseif(empty($this-> lastname)){
             $this->errors['lastname']= "Canno't be empty";
+            return $this->errors;
         }
         //Email
         elseif(empty($this-> email)){
-            $this->errors['email']= "Canno't be empty"; 
+             $this->errors['email']= "Canno't be empty"; 
+             return $this->errors;
         }elseif(count($emailExists) != 0){
-            $this->errors['email']= "Email exists"; 
+             $this->errors['email']= "Email exists"; 
+             return $this->errors;
         }
         //Password
         elseif(empty($this-> password)){
             $this->errors['password']= "Canno't be empty"; 
+            return $this->errors;
         }
         elseif($this -> password != $this ->confirm_password){
             $this->errors['password']= "Passwords must be the same"; 
+            return $this->errors;
         }
         elseif(strlen($this -> password)<=5){
             $this->errors['password']= "Minimum 6 characters"; 
+            return $this->errors;
         }else{
             $this-> createUser();
+            $this->errors['complete']= "Account created please login now";
+            return $this-> errors;
         }
-
-        print_r($this->errors);
-        
-
     }
 
     public function CreateUser(){
         global $Db;
         $rowNames = ['name','lastname','role','email','password'];
-        $values = [$this->name,$this->lastname,'user',$this->email,$this->password,];
+        $values = [$this->name,$this->lastname,'user',$this->email,$this->HashPass($this->password),];
         $Db-> Insert('users',$rowNames,$values);
-        echo "Napravljen user <br>";
+    }
+
+    public function HashPass($password){
+
+        return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+
     }
 
 }
