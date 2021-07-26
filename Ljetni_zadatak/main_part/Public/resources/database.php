@@ -55,7 +55,7 @@ class database {
     }
 
     //ako želiš povuci sve iz baze ostavi where prazno 
-    public function Select($tableName,$rowNames,array $where=null, array $values=null){
+    public function Select($tableName,$rowNames,array $where=[], array $values=[]){
 
         $rows="";
         foreach($rowNames as $row){
@@ -89,4 +89,5 @@ class database {
     }
 }
 $Db = new Database;
+
 ?>

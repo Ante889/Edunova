@@ -20,6 +20,14 @@ if(isset($_GET["product"])){
 }elseif(isset($_GET["logout"])){
   include "resources/userLogin.php";
   $login->logoutUser();
+}elseif(isset($_GET["item"])){
+  include "product_page.php";
+}elseif(isset($_GET["admin"])){
+  include "Admin/show_product.php";
+}elseif(isset($_GET["productAdd"])){
+  include "Admin/create_product.php";
+}elseif(isset($_GET["productChange"])){
+  include "Admin/update_product.php";
 }else{
   include "product.php";
 }
