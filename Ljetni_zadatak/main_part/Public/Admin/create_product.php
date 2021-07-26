@@ -44,6 +44,7 @@ $product-> createProduct();
       </div>
       <div class="cell small-4 large-offset-4">
       <input type="submit" class="button" value="Create product" name="submit">
+      <a href="index.php?admin" class="alert button">Back</a>
       </div>
     </div>
   </div>

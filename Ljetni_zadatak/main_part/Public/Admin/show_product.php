@@ -6,7 +6,7 @@ if(isset($_GET['delete'])){
 }
 
 ?>
-
+<a href="index.php?productAdd" class="button">Add product</a>
 <table>
   <thead>
     <tr>
@@ -32,8 +32,7 @@ if(isset($_GET['delete'])){
       <td class="text-center"><h5><?php echo $result[$i]['category'];?></h5></td>
       <td class="text-center"><h5><?php echo $result[$i]['quantity'];?></h5></td>
       <td class="text-center"><h5><?php echo $result[$i]['content'];?></h5></td>
-      <td class="text-center"><a href="index.php?productAdd" class="button">Add</a></td>
-      <td class="text-center"><a href="index.php?productChange" class="success button">Change</a></td>
+      <td class="text-center"><a href="index.php?productChange=<?php echo $result[$i]['id'];?>" class="success button">Change</a></td>
       <td class="text-center"><a href="index.php?admin&delete=<?php echo $result[$i]['id'];?>" class="alert button">Delete</a></td>
     </tr>
     <?php }?>
