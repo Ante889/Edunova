@@ -55,7 +55,7 @@ class database {
     }
 
     //ako želiš povuci sve iz baze ostavi where prazno 
-    public function Select($tableName,$rowNames,array $where=[], array $values=[]){
+    public function Select($tableName,$rowNames,array $where=[], array $values=[], $limit = 1000, $offset=0){
 
         $rows="";
         foreach($rowNames as $row){
@@ -69,12 +69,12 @@ class database {
         }
         $whereArray= substr($whereArray, 0,-1);
         if($where != null){
-        $sql= "SELECT $rows FROM $tableName WHERE $whereArray";
+        $sql= "SELECT $rows FROM $tableName WHERE $whereArray LIMIT $limit OFFSET $offset";
         $statement = $this -> connection -> prepare($sql);
         $statement->execute($values);
         return $result = $statement->fetchall();
     }else{
-        $sql= "SELECT $rows FROM $tableName";
+        $sql= "SELECT $rows FROM $tableName LIMIT $limit OFFSET $offset";
         $statement = $this -> connection -> prepare($sql);
         $statement->execute();
         return $result = $statement->fetchall();

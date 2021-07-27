@@ -75,6 +75,28 @@ class product{
             }
 
     }
+
+    public function pager($limit){
+
+        global $Db;
+        $rowNames=['id','title','author','image','price','category','quantity','content'];
+        $result = $Db-> Select('products',$rowNames);     
+        return ceil(count($result)/$limit);
+
+    }
+
+    public function showProductsWihtOffset($limit){
+
+        global $Db;
+        if(!empty($_GET['page'])){
+            $offset = $limit * $_GET['page'] - $limit;
+        }else {
+            $offset=0;
+        }
+        $rowNames=['id','title','author','image','price','category','quantity','content'];
+        return $Db-> Select('products',$rowNames,[],[],$limit,$offset); 
+
+    }
 }
 
 $product = new product;

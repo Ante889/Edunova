@@ -1,3 +1,6 @@
+<?php if(!isset($_GET['page'])){
+  $_GET['page'] =1;
+  }?>
 <!-- Start orbit  -->
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
   <div class="orbit-wrapper">
@@ -114,7 +117,7 @@
 <div class="cell small-9">
 <?php
 
-$result = $product -> showProducts();
+$result = $product -> showProductsWihtOffset(6);
 
 ?>
   <!-- Products -->
@@ -145,12 +148,32 @@ $result = $product -> showProducts();
 <nav aria-label="Pagination">
 <br><br><br>
 <ul class="pagination">
-<li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
-<li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-<li><a href="#" aria-label="Page 2">2</a></li>
-<li><a href="#" aria-label="Page 3">3</a></li>
-<li><a href="#" aria-label="Page 4">4</a></li>
-<li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+
+<?php
+if(isset($_GET['page']) && $_GET['page'] > 1){
+  $page=$_GET['page']-1;
+    echo "<li class=''><a href='index.php?product&page=$page' aria-label='Previous page'>Previous <span class=''>page</span></a></li>";
+  }
+
+
+
+for ($i=1; $i <= $product->pager(6,0); $i++ ) { 
+  if(isset($_GET['page']) && $i == $_GET['page']){
+    echo "<li class='current'><span class='show-for-sr'>You're on page</span> $i</li>";
+  }else{
+    echo "<li><a href='index.php?product&page=$i' aria-label='Page 2'>$i</a></li>";
+  }
+}
+if(empty($_GET['page']) || $product->pager(6,0) > $_GET['page']){
+if(!empty($_GET['page'])){
+$page=$_GET['page']+1;
+echo "<li class=''><a href='index.php?product&page=$page' aria-label='Next page'>Next <span class=''>page</span></a></li>";
+}else{
+  echo "<li class=''><a href='index.php?product&page=2' aria-label='Next page'>Next <span class=''>page</span></a></li>";
+}
+}
+?>
+
 </ul>
 </nav>
 <!-- End Pagination -->
