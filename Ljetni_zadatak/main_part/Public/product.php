@@ -112,23 +112,30 @@
       </div>
 
 <div class="cell small-9">
+<?php
 
+$result = $product -> showProducts();
+
+?>
   <!-- Products -->
 <br><br>
     <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-3">
+      <?php for ($i=0; $i < count($result); $i++) {?>
       <!--Product-->
       <div class="cell small-3">
         <div class="card">
-          <img src="Test.jpg">
+          <img src="images/<?php echo $result[$i]['image']?>">
           <div class="card-section">
-          <h4>This is a row of cards.</h4>
-            <p>This row of cards is embedded in an X-Y Block Grid.</p>
-            <h5>Price: 12.99$ </h5>
+          <h4><?php echo $result[$i]['title']?></h4>
+            <p> Author: <?php echo $result[$i]['author']?></p>
+            <p><?php echo mb_strimwidth($result[$i]['content'], 0, 30, "...") ?></p>
+            <h5>Price: <?php echo $result[$i]['price']?>$</h5>
           </div>
           <a class="button primary" href="product.php?Product_id='Id'">Buy</a>
         </div>
       </div>
       <!--Product-->
+      <?php } ?>
     </div>
 
 
