@@ -42,7 +42,7 @@ class product{
 
     }
 
-    function showProductsForUpdate($id){
+    function showProductsId($id){
         global $Db;
         $rowNames=['id','title','author','image','price','category','quantity','content'];
         return $Db->Select('products',$rowNames,['id'],[$id]);
@@ -95,6 +95,13 @@ class product{
         }
         $rowNames=['id','title','author','image','price','category','quantity','content'];
         return $Db-> Select('products',$rowNames,[],[],$limit,$offset); 
+
+    }
+
+    public function searchProduct($name){
+        global $Db;
+       $rowNames=['id','title','author','image','price','category','quantity','content'];
+        return $Db-> Search('products',$rowNames,['title'],$name); 
 
     }
 }

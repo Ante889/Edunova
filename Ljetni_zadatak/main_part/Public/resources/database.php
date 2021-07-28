@@ -87,6 +87,26 @@ class database {
             die($this ->connection->errorInfo());
         }
     }
+
+    public function Search($tableName,$rowNames,array $where=[],$like){
+
+        $rows="";
+        foreach($rowNames as $row){
+            $rows = $rows . $row.",";
+        }
+        $rows= substr($rows, 0,-1);
+
+        $whereArray="";
+        foreach($where as $row){
+            $whereArray = $whereArray . $row.",";
+        }
+        $whereArray= substr($whereArray, 0,-1);
+        $sql= "SELECT $rows FROM $tableName WHERE $whereArray LIKE '%$like%'";
+        $statement = $this -> connection -> prepare($sql);
+        $statement->execute();
+        return $result = $statement->fetchall();
+        $this->Confirm_sql($statement);
+    }
 }
 $Db = new Database;
 

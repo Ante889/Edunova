@@ -1,3 +1,7 @@
+<?php 
+
+?>
+
 <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
   <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
   <div class="title-bar-title">Menu</div>
@@ -24,10 +28,14 @@
 
     </ul>
   </div>
+  <form action="index.php?search" method="get">
   <div class="top-bar-right">
     <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
+      <li><input type="search" name="search" placeholder="Search"></li>
+      <li><input type="submit" class="button" value="Submit"></li>
     </ul>
   </div>
+  </form>
 </div>
+
+

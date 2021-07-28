@@ -3,7 +3,7 @@
 $product-> updateProducts($_GET['productChange']);
 
 if(isset($_GET['productChange'])){
-    $result=$product->showProductsForUpdate($_GET['productChange']);
+    $result=$product->showProductsId($_GET['productChange']);
 }
 
 

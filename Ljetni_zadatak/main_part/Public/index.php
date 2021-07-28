@@ -22,6 +22,8 @@ if(isset($_GET["product"])){
   $login->logoutUser();
 }elseif(isset($_GET["item"])){
   include "product_page.php";
+}elseif(isset($_GET["search"])){
+  include "search.php";
 }elseif(isset($_GET["admin"]) && $_SESSION['role']=='admin'){
   include "Admin/show_product.php";
 }elseif(isset($_GET["productAdd"]) && $_SESSION['role']=='admin'){

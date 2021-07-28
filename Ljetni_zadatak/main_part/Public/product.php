@@ -134,7 +134,7 @@ $result = $product -> showProductsWihtOffset(6);
             <p><?php echo mb_strimwidth($result[$i]['content'], 0, 30, "...") ?></p>
             <h5>Price: <?php echo $result[$i]['price']?>$</h5>
           </div>
-          <a class="button primary" href="product.php?Product_id='Id'">Buy</a>
+          <a class="button primary" href="index.php?item&Product_id=<?php echo $result[$i]['id']?>">Buy</a>
         </div>
       </div>
       <!--Product-->
