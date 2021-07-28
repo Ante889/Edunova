@@ -1,35 +1,28 @@
 
-# i-want-to-learn
-A web application for collecting information on how to learn anything.
+# EDUNOVA LJETNI ZADATAK
 
-# description
+# REALIZIRANE TOČKE
 
-## Requirements (English)
+## OSNOVNI DIO
 
-- [x] The Foundation RWD framework is used for application development
+- [x] Za razvoj aplikacije se koristi Foundation RWD framework
 
-- [x] The application must have a public and a private part
+- [x] Aplikacija mora imati javni i privatni dio
 
-- [x] The application must be responsive to at least two different screen widths (RWD) - the content must be legible, visible, well organized for both screen widths
+- [x] Aplikacija mora biti prilagodljiva minimalno dvoje različitim širinama zalona (RWD) - sadržaj mora biti čitljiv, vidljiv, dobro organiziran za obje širine zaslona
 
-- [x] Authorization is performed based on data in a ~~php file~~ database.
+- [x] Autorizacija se izvršava na osnovu podataka u php datoteci (Podatci spremljeni u databazu)
 
-- [x] Set a minimum of 2 users and connection passwords on the authorization page
+- [x] Na stranici autorizacije postaviti minimalno 2 korisnika i lozinke za spajanje
 
-- [x] The private part must allow CRUD - entry, reading, modification and deletion of all data to one entity of your final work that is not bound to some other table with a foreign key. The data is stored in the ~~Session~~ DB.
+- [x] Privatni dio mora omogućiti CRUD - unos, čitanje, promjenu i brisanje svih podataka na jedan entitet Vašeg završnog rada koja nije vezana u nekim drugim tablicama vanjskim ključem. Podaci se pohranjuju u Session. (Korištena databaza).
 
-- [x] Upload to hosting application
+- [x] Postaviti na hosting aplikaciju
 
-- [x] Upload to github code
+- [x] Postaviti na github kod
 
-- [x] In readme.md write which points are realized
+- [x] U readme.md napisati koje su točke realizirane
 
-- [x] In the public part of the application, place a link to the github code
+- [x] Na javnom dijelu aplikacije postaviti link na github kod
 
-- [x] On the private part of the application put a link to the ERA diagram
-
-- [x] The application has metadata according to http://ogp.me/
-
-- [x] The application has favicons created using http://www.favicon-generator.org/
-
-- [x] To enter and change in the ~~a session~~ database, it is necessary to make controls of all entered data 
+- [x] Na privatnom dijelu aplikacije staviti link na ERA dijagram
