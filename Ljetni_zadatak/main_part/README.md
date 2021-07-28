@@ -26,3 +26,9 @@
 - [x] Na javnom dijelu aplikacije postaviti link na github kod
 
 - [x] Na privatnom dijelu aplikacije staviti link na ERA dijagram
+
+- [x] Aplikacija ima metapodatke prema http://ogp.me/
+
+- [x] Aplikacija ima favicon-e kreirane pomoću http://www.favicon-generator.org/
+
+- [x] Za unos i promjenu u session potrebno je napraviti kontrole svih unesenih podataka 
