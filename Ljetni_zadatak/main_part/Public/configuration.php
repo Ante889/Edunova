@@ -5,4 +5,4 @@ include "resources/function.php";
 include "resources/productClass.php";
 
 define("TITLE", "MyShop");
-define("PATH", __DIR__);
+define("PATH", "http://polaznik07.edunova.hr/");
