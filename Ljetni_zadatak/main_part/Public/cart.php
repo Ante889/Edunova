@@ -21,7 +21,6 @@ isLogout('index.php?login');
       <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi minus dolorum unde! Tempora eligendi rerum mollitia dolores id velit, ratione earum iusto quibusdam soluta a neque harum natus fugiat. Architecto.</td>
       <td class="text-center">150$</td>
       <td class="text-center"><input name="itemquantity3051490" type="text" value="1" class="qty-input"></td>
-      <td class="text-center">150$</td>
       <td class="text-center"><button type="button" class="alert button">Delete</button></td>
     </tr>
     <tr>
@@ -29,7 +28,6 @@ isLogout('index.php?login');
       <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi minus dolorum unde! Tempora eligendi rerum mollitia dolores id velit, ratione earum iusto quibusdam soluta a neque harum natus fugiat. Architecto.</td>
       <td class="text-center">150$</td>
       <td class="text-center"><input name="itemquantity3051490" type="text" value="1" class="qty-input"></td>
-      <td class="text-center">150$</td>
       <td class="text-center"><button type="button" class="alert button">Delete</button></td>
     </tr>
     <tr>
@@ -37,7 +35,6 @@ isLogout('index.php?login');
       <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi minus dolorum unde! Tempora eligendi rerum mollitia dolores id velit, ratione earum iusto quibusdam soluta a neque harum natus fugiat. Architecto.</td>
       <td class="text-center">150$</td>
       <td class="text-center"><input name="itemquantity3051490" type="text" value="1" class="qty-input"></td>
-      <td class="text-center">150$</td>
       <td class="text-center"><button type="button" class="alert button">Delete</button></td>
     </tr>
     <tr>

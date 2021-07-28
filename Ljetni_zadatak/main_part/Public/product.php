@@ -11,9 +11,9 @@
     <ul class="orbit-container">
       <li class="is-active orbit-slide">
         <figure class="orbit-figure">
-          <img class="orbit-image" src="Test.jpg" alt="Space">
+          <img class="orbit-image" src="images/Test.jpg" alt="Space">
           <a href=""> 
-          <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+          <figcaption class="orbit-caption">Ad content.</figcaption>
           </a>
         </figure>
       </li>

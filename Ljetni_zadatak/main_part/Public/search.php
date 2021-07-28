@@ -9,9 +9,11 @@
 <?php
 if(!empty($_GET['search'])){
 $result = $product -> searchProduct($_GET['search']);
+if(count($result)==0){
+    echo "<h3 style='color:red;'>no products to display</h3>";
+}
 }else{
-    $result[0]="";
-    echo "<h3>No products to display</h3>";
+    include "product.php";
 }
 ?>
   <!-- Products -->
