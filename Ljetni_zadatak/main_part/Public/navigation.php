@@ -12,7 +12,6 @@
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text"><?php echo TITLE;?></li>
       <li><a href="?product">Products</a></li>
-      <li><a href="?cart">Cart</a></li>
       
       <?php
       if(isset($_SESSION['id'])){

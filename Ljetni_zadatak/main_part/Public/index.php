@@ -11,8 +11,6 @@
 
 if(isset($_GET["product"])){
   include "product.php";
-}elseif(isset($_GET["cart"])){
-  include "cart.php";
 }elseif(isset($_GET["login"])){
   include "login.php";
 }elseif(isset($_GET["register"])){

@@ -18,7 +18,7 @@ if(count($result)==0){
 ?>
   <!-- Products -->
 <br><br>
-    <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-3">
+    <div class="grid-x grid-margin-x small-up-1 medium-up-3 large-up-3">
       <?php for ($i=0; $i < count($result); $i++) {?>
       <!--Product-->
       <div class="cell small-3">
@@ -48,10 +48,10 @@ if(count($result)==0){
   <hr>
 </div>
 <div class="grid-container">
-  <div class="grid-x grid-margin-x small-up-6 medium-up-6">
+  <div class="grid-x grid-margin-x small-up-1 medium-up-6">
     <div class="cell">
       <div class="card">
-        <img src="Test.jpg">
+        <img src="images/unnamed.png">
         <div class="card-section">
         <h5>This is a row of cards.</h5>
           <p>This row of cards is embedded in an X-Y Block Grid.</p>

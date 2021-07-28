@@ -35,14 +35,14 @@
 <h2 class="text-center">PRODUCTS</h2>
 <div class="grid-x">
 
-    <div class="cell small-3">
+    <div class="cell small-12 large-3">
 
       <!-- Aside -->
 
       <div class="product-filters">
   <ul class="mobile-product-filters vertical menu show-for-small-only" data-accordion-menu>
    <li>
-     <a href="#"><h2>Products</h2></a>   
+     <a href="#"><h2>Filter</h2></a>   
      <ul class="vertical menu" data-accordion-menu>
       <li class="product-filters-tab">
         <a href="#">Category</a>
@@ -122,7 +122,8 @@ $result = $product -> showProductsWihtOffset(6);
 ?>
   <!-- Products -->
 <br><br>
-    <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-3">
+<div class="grid-container">
+    <div class="grid-x grid-margin-x small-up-1 medium-up-3 large-up-3">
       <?php for ($i=0; $i < count($result); $i++) {?>
       <!--Product-->
       <div class="cell small-3">
@@ -138,15 +139,11 @@ $result = $product -> showProductsWihtOffset(6);
         </div>
       </div>
       <!--Product-->
-      <?php } ?>
-    </div>
-
-
-<!--End Products -->
-
-<!-- Pagination-->
-<nav aria-label="Pagination">
+    <?php } ?>
+  </div>
+   <!-- Pagination-->
 <br><br><br>
+<nav aria-label="pagination-centered">
 <ul class="pagination">
 
 <?php
@@ -154,9 +151,6 @@ if(isset($_GET['page']) && $_GET['page'] > 1){
   $page=$_GET['page']-1;
     echo "<li class=''><a href='index.php?product&page=$page' aria-label='Previous page'>Previous <span class=''>page</span></a></li>";
   }
-
-
-
 for ($i=1; $i <= $product->pager(6,0); $i++ ) { 
   if(isset($_GET['page']) && $i == $_GET['page']){
     echo "<li class='current'><span class='show-for-sr'>You're on page</span> $i</li>";
@@ -177,6 +171,12 @@ echo "<li class=''><a href='index.php?product&page=$page' aria-label='Next page'
 </ul>
 </nav>
 <!-- End Pagination -->
+</div>
+
+
+<!--End Products -->
+
+
 
 </div>
 
@@ -190,10 +190,10 @@ echo "<li class=''><a href='index.php?product&page=$page' aria-label='Next page'
   <hr>
 </div>
 <div class="grid-container">
-  <div class="grid-x grid-margin-x small-up-6 medium-up-6">
+  <div class="grid-x grid-margin-x small-up-1 medium-up-6">
     <div class="cell">
       <div class="card">
-        <img src="Test.jpg">
+        <img src="images/unnamed.png">
         <div class="card-section">
         <h5>This is a row of cards.</h5>
           <p>This row of cards is embedded in an X-Y Block Grid.</p>
