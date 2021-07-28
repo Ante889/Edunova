@@ -23,6 +23,7 @@
         echo "<li><a href='?admin'>Admin</a></li>";
       }
       ?>
+      <li><a target="_blank" href='https://github.com/Ante889/Edunova/tree/master/Ljetni_zadatak/main_part'>Code on github</a></li>
       
 
     </ul>

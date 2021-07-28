@@ -41,5 +41,8 @@ if(isset($_GET['delete'])){
   </tbody>
   </tbody>
 </table>
-
+<h3>Database diagram</h3>
+<hr>
+<img style="" src="Diagram.png">
+<hr>
 

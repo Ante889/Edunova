@@ -22,11 +22,11 @@ if(isset($_GET["product"])){
   include "product_page.php";
 }elseif(isset($_GET["search"])){
   include "search.php";
-}elseif(isset($_GET["admin"]) && $_SESSION['role']=='admin'){
+}elseif(isset($_GET["admin"]) && !empty($_SESSION['role']) &&$_SESSION['role']=='admin'){
   include "Admin/show_product.php";
-}elseif(isset($_GET["productAdd"]) && $_SESSION['role']=='admin'){
+}elseif(isset($_GET["productAdd"])&& !empty($_SESSION['role']) && $_SESSION['role']=='admin'){
   include "Admin/create_product.php";
-}elseif(isset($_GET["productChange"]) && $_SESSION['role']=='admin'){
+}elseif(isset($_GET["productChange"])&& !empty($_SESSION['role']) && $_SESSION['role']=='admin'){
   include "Admin/update_product.php";
 }else{
   include "product.php";

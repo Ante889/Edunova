@@ -5,7 +5,7 @@ $item=$product-> showProductsId($_GET['Product_id']);
 ?>
 
 <div class="grid-x">
-      <div class="cell small-6 large-6">
+      <div class="cell small-12 large-6">
         <img class="thumbnail" src="images/<?php echo $item[0]['image'];?>">
       </div>
       <div class="cell small-6 large-6">
@@ -13,7 +13,7 @@ $item=$product-> showProductsId($_GET['Product_id']);
         <p><?php echo $item[0]['content'];?></p>
         <h4>Price</h4>
         <p><?php echo $item[0]['price'];?>$</p>
-        <a href="#" class="button large expanded">Buy Now</a>
+        <a href="#" class="button large expanded"><?php if(isset($_SESSION['id'])){echo "Buy now";}else{echo "Login to buy this product";}?></a>
     </div>
 
     <div class="column row">

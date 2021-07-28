@@ -77,7 +77,7 @@
    </li>
  </ul>
  
- <h1 class="product-filters-header hide-for-small-only">Products</h1>
+ <h1 class="product-filters-header hide-for-small-only">Filter</h1>
  <ul class="vertical menu hide-for-small-only" data-accordion-menu>
     <li class="product-filters-tab">
       <a href="#">Category</a>
@@ -129,8 +129,8 @@ $result = $product -> showProductsWihtOffset(6);
       <div class="cell small-3">
         <div class="card">
           <img src="images/<?php echo $result[$i]['image']?>">
-          <div class="card-section">
-          <h4><?php echo $result[$i]['title']?></h4>
+          <div class="card-section"><a href=""></a>
+          <h4><a href="index.php?item&Product_id=<?php echo $result[$i]['id']?>"><?php echo $result[$i]['title']?></a></h4>
             <p> Author: <?php echo $result[$i]['author']?></p>
             <p><?php echo mb_strimwidth($result[$i]['content'], 0, 30, "...") ?></p>
             <h5>Price: <?php echo $result[$i]['price']?>$</h5>
