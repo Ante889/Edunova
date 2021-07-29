@@ -4,9 +4,9 @@
 class database {
 
     private $host = 'localhost';
-    private $db = 'summerproject';
-    private $user = 'root';
-    private $password = '';
+    private $db = 'hiperion_pp21';
+    private $user = 'hiperion';
+    private $password = 'Hiperion90875';
     public $connection;
      
 
