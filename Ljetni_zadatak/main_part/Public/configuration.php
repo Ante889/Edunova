@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 session_start();
 include "resources/database.php";
 include "resources/function.php";
