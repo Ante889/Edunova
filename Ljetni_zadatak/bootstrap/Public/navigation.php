@@ -3,7 +3,7 @@
 ?>
 
 <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  <button class="btn primary-button" type="button" data-toggle="responsive-menu"></button>
   <div class="title-bar-title">Menu</div>
 </div>
 
@@ -32,7 +32,7 @@
   <div class="top-bar-right">
     <ul class="menu">
       <li><input type="search" name="search" placeholder="Search"></li>
-      <li><input type="submit" class="button" value="Submit"></li>
+      <li><input type="submit" class="btn btn-primary" value="Submit"></li>
     </ul>
   </div>
   </form>
