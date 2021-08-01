@@ -16,12 +16,13 @@
       <li class="nav-item">
       <?php
       if(isset($_SESSION['id'])){
-        echo "<a class='nav-link' href='?logout'>Logout</a>";
+        echo "<a class='nav-link' href='?logout'>Logout</a></li>";
       }else{
-        echo "<a class='nav-link' href='?login'>Login</a>";
+        echo "<a class='nav-link' href='?login'>Login</a></li>";
       }
+      
       if(isset($_SESSION['role']) && $_SESSION['role']== 'admin'){
-        echo "<a class='nav-link' href='?admin'>Admin</a>";
+        echo "<li class='nav-item'><a class='nav-link' href='?admin'>Admin</a></li>";
       }
       ?>
       </li>

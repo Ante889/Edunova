@@ -5,46 +5,48 @@ $product-> createProduct();
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
-  <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>TITLE</h4>
-          <input type="text" name="title" placeholder="input title">
+  <div class="form-group row">
+    <div class="col-sm-5">
+      <div class="form-group text-center">
+        <label><h4 class="text-center">TITLE</h4>
+          <input class="form-control" type="text" name="title" placeholder="input title">
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>AUTHOR</h4>
-          <input type="text" name="author" placeholder="Input author name">
+      <div class="form-group text-center">
+        <label><h4 class="text-center">AUTHOR</h4>
+          <input class="form-control" type="text" name="author" placeholder="Input author name">
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>IMAGE</h4>
-            <input type="file" name="image">
+      <div class="form-group text-center">
+        <label><h4 class="text-center">IMAGE</h4>
+            <input class="form-control" type="file" name="image">
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>PRICE</h4>
-          <input type="text" name="price" placeholder="Set price">
+      <div class="form-group text-center">
+        <label><h4 class="text-center">PRICE</h4>
+          <input class="form-control" type="text" name="price" placeholder="Set price">
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>CATEGORY</h4>
-          <input type="text" name="category" placeholder="Input category (int)">
+      <div class="form-group text-center">
+        <label><h4 class="text-center">CATEGORY(int!)</h4>
+          <input class="form-control" type="text" name="category" placeholder="Input category (int)">
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>QUANTITY(int)</h4>
-          <input type="number" name="quantity" placeholder="Quantity">
+      <div class="form-group text-center">
+        <label><h4 class="text-center">QUANTITY</h4>
+          <input class="form-control" type="number" name="quantity" placeholder="Quantity">
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-        <label><h4>CONTENT</h4>
+      <div class="form-group text-center">
+        <label><h4 class="text-center">CONTENT</h4>
         <textarea id="w3review" name="content" rows="4" cols="50"></textarea>
         </label>
       </div>
-      <div class="cell small-12 large-8 large-offset-2">
-      <input type="submit" class="button" value="Create product" name="submit">
-      <a href="index.php?admin" class="alert button">Back</a>
+      <div class="form-group text-center">
+      <input type="submit" class="btn btn-primary" value="Create product" name="submit">
+      <a href="index.php?admin" class="btn btn-outline-danger">Back</a>
+      </div>
+      </div>
       </div>
     </div>
   </div>
