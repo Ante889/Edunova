@@ -4,60 +4,65 @@ $item=$product-> showProductsId($_GET['Product_id']);
 
 ?>
 
-<div class="grid-x">
-      <div class="cell small-12 large-6">
-        <img class="thumbnail" src="images/<?php echo $item[0]['image'];?>">
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <img class="img-thumbnail" src="images/<?php echo $item[0]['image'];?>">
       </div>
-      <div class="cell small-6 large-6">
+      <div class="col-md-6 ">
         <h3><?php echo $item[0]['title'];?></h3>
         <p><?php echo $item[0]['content'];?></p>
         <h4>Price</h4>
         <p><?php echo $item[0]['price'];?>$</p>
-        <a href="#" class="button large expanded"><?php if(isset($_SESSION['id'])){echo "Buy now";}else{echo "Login to buy this product";}?></a>
+        <a href="#" class="btn btn-primary btn-lg btn-block"><?php if(isset($_SESSION['id'])){echo "Buy now";}else{echo "Login to buy this product";}?></a>
     </div>
+  </div><br><br>
+    
 
-    <div class="column row">
-      <hr>
-      <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Reviews</a></li>
-      </ul>
-      <div class="tabs-content" data-tabs-content="example-tabs">
-        <div class="tabs-panel is-active" id="panel1">
-          <h4>Reviews</h4>
-          <div class="media-object stack-for-small">
-            <div class="media-object-section">
-              <img class="thumbnail" src="https://placehold.it/200x200">
-            </div>
-            <div class="media-object-section">
-              <h5>Mike Stevenson</h5>
-              <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
-            </div>
-          </div>
-          <div class="media-object stack-for-small">
-            <div class="media-object-section">
-              <img class="thumbnail" src="https://placehold.it/200x200">
-            </div>
-            <div class="media-object-section">
-              <h5>Mike Stevenson</h5>
-              <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
-            </div>
-          </div>
-          <div class="media-object stack-for-small">
-            <div class="media-object-section">
-              <img class="thumbnail" src="https://placehold.it/200x200">
-            </div>
-            <div class="media-object-section">
-              <h5>Mike Stevenson</h5>
-              <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
-            </div>
-          </div>
-          <label>
-            My Review
-            <textarea placeholder="None"></textarea>
-          </label>
-          <button class="button">Submit Review</button>
-        </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <div class="container bootstrap snippets bootdey">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3 class="text-success">Comments</h3>
+                <hr/>
+				<ul class="comments">
+				<li class="clearfix">
+				  <img src="" class="avatar" alt="">
+				  <div class="post-comments">
+				      <p class="meta">Dec 2, 2021 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"></a></i></p>
+				      <p>
+				          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				          Etiam a sapien odio, sit amet
+				      </p>
+				  </div>
+				</li>
+				<li class="clearfix">
+				  <img src="" class="avatar" alt="">
+				  <div class="post-comments">
+				      <p class="meta">Dec 2, 2021 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"></a></i></p>
+				      <p>
+				          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				          Etiam a sapien odio, sit amet
+				      </p>
+				  </div>
+				</li>
+        <li class="clearfix">
+				  <img src="" class="avatar" alt="">
+				  <div class="post-comments">
+				      <form action="">
+              <div class="form-group">
+                <input type="text" class="form-control" name="" id="">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </div>
+              </form>
+				  </div>
+				</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
