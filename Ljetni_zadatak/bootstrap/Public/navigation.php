@@ -2,40 +2,37 @@
 
 ?>
 
-<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <button class="btn primary-button" type="button" data-toggle="responsive-menu"></button>
-  <div class="title-bar-title">Menu</div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><?php echo TITLE;?></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<div class="top-bar" id="responsive-menu">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text"><?php echo TITLE;?></li>
-      <li><a href="?product">Products</a></li>
-      
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="?product">Products</a>
+      </li>
+      <li class="nav-item">
       <?php
       if(isset($_SESSION['id'])){
-        echo "<li><a href='?logout'>Logout</a></li>";
+        echo "<a class='nav-link' href='?logout'>Logout</a>";
       }else{
-        echo "<li><a href='?login'>Login</a></li>";
+        echo "<a class='nav-link' href='?login'>Login</a>";
       }
       if(isset($_SESSION['role']) && $_SESSION['role']== 'admin'){
-        echo "<li><a href='?admin'>Admin</a></li>";
+        echo "<a class='nav-link' href='?admin'>Admin</a>";
       }
       ?>
-      <li><a target="_blank" href='https://github.com/Ante889/Edunova/tree/master/Ljetni_zadatak/main_part'>Code on github</a></li>
-      
-
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href='https://github.com/Ante889/Edunova/tree/master/Ljetni_zadatak/main_part'>Code on github</a>
+      </li>
     </ul>
+    <form action="index.php?search" method="get" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
   </div>
-  <form action="index.php?search" method="get">
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li><input type="search" name="search" placeholder="Search"></li>
-      <li><input type="submit" class="btn btn-primary" value="Submit"></li>
-    </ul>
-  </div>
-  </form>
-</div>
-
+</nav>
 
