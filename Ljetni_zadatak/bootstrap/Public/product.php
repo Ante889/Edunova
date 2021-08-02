@@ -112,7 +112,7 @@
 </div>
 <div class="container">
       <div class="row">
-      <?php for ($i=0; $i < 1; $i++) {?>
+      <?php if(count($result) > 0){for ($i=0; $i < 1; $i++) {?>
         <div class="col-md-4 mt-5">
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="images/<?php echo $result[$i]['image']?>" alt="Card image cap">
@@ -125,7 +125,7 @@
             </div>
           </div>
         </div>
-        <?php } ?>
+        <?php }} ?>
       </div>
   </div>
 </div>
