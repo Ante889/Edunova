@@ -3,7 +3,7 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><?php echo TITLE;?></a>
+  <a class="navbar-brand" href="?product"><?php echo TITLE;?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,7 +27,7 @@
       ?>
       </li>
       <li class="nav-item">
-        <a class="nav-link" target="_blank" href='https://github.com/Ante889/Edunova/tree/master/Ljetni_zadatak/main_part'>Code on github</a>
+        <a class="nav-link" target="_blank" href='https://github.com/Ante889/Edunova/tree/master/Ljetni_zadatak/bootstrap'>Code on github</a>
       </li>
     </ul>
     <form action="index.php?search" method="get" class="form-inline my-2 my-lg-0">

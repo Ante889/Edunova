@@ -5,17 +5,10 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script>
-$(document).foundation();
-  // Patch for a Bug in v6.3.1
-  $(window).on('changed.zf.mediaquery', function() {
-    $('.is-dropdown-submenu.invisible').removeClass('invisible');
-  });
-
   $(document).ready(function () {
     $('label.tree-toggler').click(function () {
         $(this).parent().children('ul.tree').toggle(300);
     });
 });
-
 
 </script>

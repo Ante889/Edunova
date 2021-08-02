@@ -24,13 +24,13 @@ $item=$product-> showProductsId($_GET['Product_id']);
     <div class="row">
 		<div class="col-md-12">
 		    <div class="blog-comment">
-				<h3 class="text-success">Comments</h3>
+				<h3 class="">Comments</h3>
                 <hr/>
 				<ul class="comments">
 				<li class="clearfix">
-				  <img src="" class="avatar" alt="">
+				  <img src="images/unnamed.png"  class="avatar" alt="">
 				  <div class="post-comments">
-				      <p class="meta">Dec 2, 2021 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"></a></i></p>
+				      <p class="meta">Dec 2, 2021 <a href="#">Someone</a> says : <i class="pull-right"><a href="#"></a></i></p>
 				      <p>
 				          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				          Etiam a sapien odio, sit amet
@@ -38,9 +38,9 @@ $item=$product-> showProductsId($_GET['Product_id']);
 				  </div>
 				</li>
 				<li class="clearfix">
-				  <img src="" class="avatar" alt="">
+				  <img src="images/unnamed.png" class="avatar" alt="">
 				  <div class="post-comments">
-				      <p class="meta">Dec 2, 2021 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"></a></i></p>
+				      <p class="meta">Dec 2, 2021 <a href="#">Someone</a> says : <i class="pull-right"><a href="#"></a></i></p>
 				      <p>
 				          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				          Etiam a sapien odio, sit amet
@@ -48,7 +48,7 @@ $item=$product-> showProductsId($_GET['Product_id']);
 				  </div>
 				</li>
         <li class="clearfix">
-				  <img src="" class="avatar" alt="">
+				  <img src="images/unnamed.png" class="avatar" alt="">
 				  <div class="post-comments">
 				      <form action="">
               <div class="form-group">
