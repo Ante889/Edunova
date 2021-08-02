@@ -33,4 +33,4 @@
 
 - [x] Za unos i promjenu u session potrebno je napraviti kontrole svih unesenih podataka 
 
-- !!! Stranica koristi databazu od glavnog djela zadatka 
+!!! Stranica koristi databazu od glavnog djela zadatka 
