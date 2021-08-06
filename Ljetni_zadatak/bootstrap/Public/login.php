@@ -11,6 +11,11 @@ if(isset($_POST['submit-login'])){
 
 <br>
 
+<div class="bg-light text-center">
+<h5>Admin</h5>
+  <h5>Email - admin@gmail.com</h5>
+  <h5>Password - admin123</h5>
+</div>
   <form action="" method="POST">
   <div class="form-group row">
     <div class="col-sm-5">
