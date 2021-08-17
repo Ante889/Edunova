@@ -3,8 +3,8 @@
 
 class Home extends controller{
 
-    public function index(){
-        echo 'home/index.php';
+    public function index($name = ''){
+        echo 'home/index.php <br>';
+        echo $name;
     }
-
 }
