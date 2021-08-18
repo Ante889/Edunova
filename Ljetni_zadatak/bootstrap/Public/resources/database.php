@@ -6,7 +6,7 @@ class database {
     private $host = 'localhost';
     private $db = 'hiperion_pp21';
     private $user = 'hiperion';
-    private $password = 'Hiperion90875';
+    private $password = 'Hiperion90875';    
     public $connection;
      
 

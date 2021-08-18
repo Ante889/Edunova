@@ -19,6 +19,10 @@ class product{
             $category = $_POST['category'];
             $content = $_POST['content'];
             
+            if(empty($image_name)){
+                $image_name= 'No-image.jpg';
+            }
+            
             $rowNames=['title','author','image','price','category','quantity','content'];
             $values=[$title,$author,$image_name,$price,$category,$quantity,$content];
             $Db->Insert('products',$rowNames,$values);
